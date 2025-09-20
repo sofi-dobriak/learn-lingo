@@ -1,14 +1,86 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+@import url(./reset.css);
+
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  font-style: normal;
   font-weight: 400;
+  src: url('../fonts/roboto-v49-latin-regular.woff2') format('woff2');
+}
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/roboto-v49-latin-italic.woff2') format('woff2');
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/roboto-v49-latin-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/roboto-v49-latin-700.woff2') format('woff2');
+}
+
+:root {
+  /* fonts */
+  --font-family: 'Roboto', sans-serif;
+  --font-weight: 400;
+  --font-size: 16px;
+  --line-height: 1.37;
+  --letter-spacing: -0.02em;
+
+  /* text colors */
+  --main-text-color: #121417;
+  --secondary-text-color: #8a8a89;
+  --tertiary-text-color: rgba(18, 20, 23, 0.7);
+  --additional-text-color: #fff;
+  --accent-text-color: #38cd3e;
+
+  /* bg colors */
+  --main-block-bg: #fff;
+  --secondary-block-bg: #f8f8f8;
+
+  --main-button-bg-color: #f4c550;
+  --secondary-button-bg-color: #121417;
+
+  /* border colors */
+  --main-border-color: rgba(18, 20, 23, 0.2);
+  --secondary-border-color: #f4c550;
+
+  /* hover colors*/
+  --hover-color: #ffdc86;
+
+  /* transition */
+  --transition: 0.25s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  letter-spacing: var(--letter-spacing);
+  color: var(--main-text-color);
+  background: var(--main-block-color);
+}
+
+input,
+textarea {
+  font-size: 16px;
 }
