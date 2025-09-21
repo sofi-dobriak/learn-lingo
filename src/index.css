@@ -59,10 +59,10 @@
   --secondary-border-color: #f4c550;
 
   /* hover colors*/
-  --hover-color: #ffdc86;
+  --hover-color: #f4c550;
 
   /* transition */
-  --transition: 0.25s ease-in-out;
+  --transition: 0.10s ease-in-out;
 }
 
 * {

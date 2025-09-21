@@ -6,7 +6,7 @@ interface PrivateRouteProps {
 }
 
 const PrivateRoute = ({ component, redirectTo = '/' }: PrivateRouteProps) => {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
   return isLoggedIn ? component : <Navigate to={redirectTo} />;
 };
 

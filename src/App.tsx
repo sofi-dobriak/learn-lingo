@@ -13,25 +13,23 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function App() {
   return (
-    <>
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path='/' element={<SharedLayout />}>
-            <Route index element={<HomePage />} />
-            <Route path='/teachers' element={<TeachersPage />} />
-            <Route
-              path='/favorites'
-              element={<PrivateRoute redirectTo='/login' component={<FavoritesPage />} />}
-            />
-          </Route>
+    <Suspense fallback={<Loader />}>
+      <Routes>
+        <Route path='/' element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path='/teachers' element={<TeachersPage />} />
+          <Route
+            path='/favorites'
+            element={<PrivateRoute redirectTo='/login' component={<FavoritesPage />} />}
+          />
+        </Route>
 
-          <Route path='/login' element={<LoginPage />} />
-          <Route path='/register' element={<RegisterPage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} />
 
-          <Route path='*' element={<NotFoundPage />} />
-        </Routes>
-      </Suspense>
-    </>
+        <Route path='*' element={<NotFoundPage />} />
+      </Routes>
+    </Suspense>
   );
 }
 

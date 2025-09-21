@@ -1,16 +1,32 @@
-// import s from './Navigation.module.css';
+import { setActiveClass } from '../../utils/setAcriveClass';
+import s from './Navigation.module.css';
 
 import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
+  const isLoggedIn = true;
+
   return (
-    <nav>
-      <NavLink to='/'>Home</NavLink>
-      <NavLink to='/teachers'>Teachers</NavLink>
-      <NavLink to='/teachers'>Teachers</NavLink>
-      <NavLink to='/favorites'>Favorites</NavLink>
-      <NavLink to='/login'>Login</NavLink>
-      <NavLink to='/register'>Register</NavLink>
+    <nav className={s.nav}>
+      <ul className={s.navLinksList}>
+        <li>
+          <NavLink to='/' className={setActiveClass(s.navLink, s.active)}>
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/teachers' className={setActiveClass(s.navLink, s.active)}>
+            Teachers
+          </NavLink>
+        </li>
+        <li>
+          {isLoggedIn && (
+            <NavLink to='/favorites' className={setActiveClass(s.navLink, s.active)}>
+              Favorites
+            </NavLink>
+          )}
+        </li>
+      </ul>
     </nav>
   );
 };

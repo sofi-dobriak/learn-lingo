@@ -1,0 +1,34 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 30px 0;
+}
+
+.navLinksList {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.navLink {
+  line-height: 1.25;
+  color: var(--main-text-color);
+  padding: 30px 0;
+  transition: color var(--transition);
+
+  &:hover,
+  &:focus {
+    color: var(--hover-color)
+  }
+}
+
+.active {
+  color: var(--hover-color);
+}
