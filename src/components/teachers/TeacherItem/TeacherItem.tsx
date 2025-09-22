@@ -18,7 +18,9 @@ interface TeacherItemProps {
 const TeacherItem = ({ teacher, isExpanded, handleToggleReviews }: TeacherItemProps) => {
   return (
     <>
-      <img src={teacher.avatar_url} alt="A teacher's avatar" width={120} height={120} />
+      <div className={s.teacherAvatarContainer}>
+        <img src={teacher.avatar_url} alt="A teacher's avatar" width={120} height={120} />
+      </div>
 
       <div className={s.teacherCardTextContainer}>
         <div className={s.languagesNameInfoFavContainer}>
