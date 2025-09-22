@@ -5,10 +5,15 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { fetchTeachers } from '../../redux/teachers/teachersOperations';
 
 import TeachersList from '../../components/teachers/TeachersList/TeachersList';
-import { selectError, selectIsLoading } from '../../redux/teachers/teachersSelectors';
+import {
+  selectError,
+  selectIsLoading,
+  selectTeachers,
+} from '../../redux/teachers/teachersSelectors';
 
 const TeachersPage = () => {
   const dispatch = useAppDispatch();
+  const teachers = useAppSelector(selectTeachers);
   const isLoading = useAppSelector(selectIsLoading);
   const error = useAppSelector(selectError);
 
@@ -20,7 +25,7 @@ const TeachersPage = () => {
     <section className={s.teachersPage}>
       <Container>
         {isLoading && <h2>Loading...</h2>}
-        {!isLoading && !error && <TeachersList />}
+        {!isLoading && !error && <TeachersList teachers={teachers} />}
       </Container>
     </section>
   );

@@ -34,7 +34,7 @@ const TeacherItem = ({ teacher, isExpanded, handleToggleReviews }: TeacherItemPr
               price_per_hour={teacher.price_per_hour}
             />
 
-            <FavoriteButton />
+            <FavoriteButton {...teacher} />
           </div>
         </div>
 

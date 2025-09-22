@@ -4,12 +4,14 @@ import { fetchTeachers } from './teachersOperations';
 
 interface InitialState {
   teachers: Teacher[];
+  favTeachers: Teacher[];
   isLoading: boolean;
   error: string | null;
 }
 
 const initialState: InitialState = {
   teachers: [],
+  favTeachers: [],
   isLoading: false,
   error: null,
 };
@@ -18,8 +20,17 @@ const slice = createSlice({
   name: 'teachers',
   initialState,
   reducers: {
-    clearError: state => {
-      state.error = null;
+    resetTeachers: state => {
+      return {
+        ...initialState,
+        favTeachers: state.favTeachers,
+      };
+    },
+    addFavTeacher: (state, action: PayloadAction<Teacher>) => {
+      state.favTeachers.push(action.payload);
+    },
+    deleteFavTeacher: (state, action: PayloadAction<string>) => {
+      state.favTeachers = state.favTeachers.filter(favTeacher => favTeacher.id !== action.payload);
     },
   },
   extraReducers: builder => {
@@ -39,5 +50,5 @@ const slice = createSlice({
   },
 });
 
-export const { clearError } = slice.actions;
+export const { resetTeachers, addFavTeacher, deleteFavTeacher } = slice.actions;
 export const teachersReducer = slice.reducer;

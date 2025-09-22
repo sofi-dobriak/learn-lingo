@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import s from './TeachersList.module.css';
-import { useAppSelector } from '../../../redux/hooks';
-import { selectTeachers } from '../../../redux/teachers/teachersSelectors';
 import TeacherItem from '../TeacherItem/TeacherItem';
+import type { Teacher } from '../../../types/teachers';
 
-const TeachersList = () => {
-  const teachers = useAppSelector(selectTeachers);
+interface TeachersListProps {
+  teachers: Teacher[];
+}
+
+const TeachersList = ({ teachers }: TeachersListProps) => {
   const [expandedTeacherIds, setExpandedTeacherIds] = useState<Set<string>>(new Set());
 
   const handleToggleReviews = (teacherId: string) => {

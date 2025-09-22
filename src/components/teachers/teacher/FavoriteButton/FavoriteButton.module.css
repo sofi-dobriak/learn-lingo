@@ -14,8 +14,7 @@
   stroke: #121417;
   transition: stroke var(--transition);
 
-  .favButton:hover &,
-  .favButton:focus & {
+  .favButton:hover & {
     stroke: #ffc531
   }
 }
