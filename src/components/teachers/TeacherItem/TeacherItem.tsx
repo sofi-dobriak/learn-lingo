@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import type { Teacher } from '../../../types/teachers';
 import Button from '../../common/Button/Button';
 import Conditions from '../teacher/Conditions/Conditions';
@@ -49,23 +50,19 @@ const TeacherItem = ({ teacher, isExpanded, handleToggleReviews }: TeacherItemPr
           handleToggleReviews={handleToggleReviews}
         />
 
-        {isExpanded && (
-          <>
-            <p className={s.aboutTeacherText}>{teacher.experience}</p>
-            <Reviews reviews={teacher.reviews} />
-          </>
-        )}
+        <div className={clsx(s.aboutReviewsContainer, isExpanded && s.visible)}>
+          <p className={s.aboutTeacherText}>{teacher.experience}</p>
+          <Reviews reviews={teacher.reviews} />
+        </div>
 
         <Levels levels={teacher.levels} />
 
-        {isExpanded && (
-          <Button
-            aria-label='Button for booking a trial lesson'
-            className={s.bookTrialLessonButton}
-          >
-            Book trial lesson
-          </Button>
-        )}
+        <Button
+          aria-label='Button for booking a trial lesson'
+          className={clsx(s.bookTrialLessonButton, isExpanded && s.visible)}
+        >
+          Book trial lesson
+        </Button>
       </div>
     </>
   );

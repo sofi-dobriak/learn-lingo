@@ -41,6 +41,18 @@
   gap: 64px;
 }
 
+.aboutReviewsContainer {
+  opacity: 0;
+  overflow: hidden;
+  max-height: 0;
+  transition: all 0.3s ease-in-out;
+
+  &.visible {
+    max-height: 800px;
+    opacity: 1;
+  }
+}
+
 .aboutTeacherText {
   line-height: 1.5;
   color: #121417;
@@ -49,6 +61,13 @@
 }
 
 .bookTrialLessonButton {
-  margin-top: 32px;
+  margin-top: 0;
   max-width: 232px;
+  opacity: 0;
+  transition: all var(--transition);
+
+  &.visible {
+    margin-top: 32px;
+    opacity: 1;
+  }
 }
