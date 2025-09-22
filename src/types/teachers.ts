@@ -1,4 +1,4 @@
-interface Review {
+export interface Review {
   comment: string;
   reviewer_name: string;
   reviewer_rating: number;

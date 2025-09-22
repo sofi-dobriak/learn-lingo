@@ -1,0 +1,35 @@
+.speaksConditionsInfoList {
+  margin-bottom: 16px;
+}
+
+.speaksConditionsInfoItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 8px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  span {
+    color: #8a8a89;
+  }
+
+}
+
+.speaksList {
+  display: flex;
+  align-items: center;
+  text-decoration: underline;
+  gap: 4px;
+}
+
+.conditionsList {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}

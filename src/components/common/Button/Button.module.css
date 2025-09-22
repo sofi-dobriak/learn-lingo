@@ -1,0 +1,18 @@
+.button {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #121417;
+  padding: 16px;
+  width: 100%;
+  border-radius: 12px;
+  background-color: #ffc531;
+  border: none;
+  transition: background-color var(--transition);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: #ffdc86;
+  }
+}

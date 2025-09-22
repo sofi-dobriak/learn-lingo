@@ -9,7 +9,6 @@ import { selectError, selectIsLoading } from '../../redux/teachers/teachersSelec
 
 const TeachersPage = () => {
   const dispatch = useAppDispatch();
-  // const teachers = useAppSelector(selectTeachers);
   const isLoading = useAppSelector(selectIsLoading);
   const error = useAppSelector(selectError);
 

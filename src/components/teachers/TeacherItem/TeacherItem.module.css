@@ -1,0 +1,28 @@
+.teacherCardTextContainer {
+  width: 100%;
+}
+
+.languagesNameInfoFavContainer {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.teachersInfoFavContainer {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+.aboutTeacherText {
+  line-height: 1.5;
+  color: #121417;
+  margin-bottom: 32px;
+  max-width: 932px;
+}
+
+.bookTrialLessonButton {
+  margin-top: 32px;
+  max-width: 232px;
+}

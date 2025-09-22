@@ -1,0 +1,31 @@
+.levelsList {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.levelsItem {
+  padding: 8px 12px;
+  border: 1px solid rgba(18, 20, 23, 0.2);
+  border-radius: 35px;
+  cursor: text;
+  transition: all var(--transition);
+
+  &:first-child {
+    border-color: #ffc531;
+    background-color: #ffc531;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: #ffdc86;
+    background-color: #ffdc86;
+  }
+}
+
+.levelsText {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  color: #121417;
+}
