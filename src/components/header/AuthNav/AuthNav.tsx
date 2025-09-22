@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import s from './AuthNav.module.css';
-import { setActiveClass } from '../../utils/setAcriveClass';
-
+import { setActiveClass } from '../../../utils/setActiveClass';
 const AuthNav = () => {
   return (
     <nav>

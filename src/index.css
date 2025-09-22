@@ -46,6 +46,7 @@
   --tertiary-text-color: rgba(18, 20, 23, 0.7);
   --additional-text-color: #fff;
   --accent-text-color: #38cd3e;
+  --secondary-accent-text-color: #fbe9ba;
 
   /* bg colors */
   --main-block-bg: #fff;
@@ -60,6 +61,7 @@
 
   /* hover colors*/
   --hover-color: #f4c550;
+  --secondary-hover-color: #ffdc86;
 
   /* transition */
   --transition: 0.10s ease-in-out;

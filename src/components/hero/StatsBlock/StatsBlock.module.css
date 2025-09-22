@@ -1,0 +1,30 @@
+.statsList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 40px;
+  gap: 40px;
+  border: 2px dashed var(--secondary-border-color);
+  border-radius: 30px;
+}
+
+.statsItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.statsNumber {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.14;
+  color: var(--main-text-color);
+}
+
+.statsDesc {
+  font-size: 14px;
+  line-height: 1.28;
+  color: var(--tertiary-text-color);
+  max-width: 74px;
+}

@@ -1,4 +1,4 @@
-import { setActiveClass } from '../../utils/setAcriveClass';
+import { setActiveClass } from '../../../utils/setActiveClass';
 import s from './Navigation.module.css';
 
 import { NavLink } from 'react-router-dom';
