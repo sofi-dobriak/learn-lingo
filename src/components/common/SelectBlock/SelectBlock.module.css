@@ -1,0 +1,183 @@
+.selectsContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 32px;
+  width: 100%;
+  max-width: 584px;
+}
+
+.selectLabel {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28;
+  color: #8a8a89;
+}
+
+
+.selectWrapper {
+  margin-top: 8px;
+}
+
+.selectWrapper .selectControl {
+  border-radius: 14px;
+  border-color: transparent;
+  padding: 14px;
+  width: 220px;
+  height: 48px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color var(--transition);
+
+  div {
+    padding: 0;
+    margin: 0;
+  }
+
+  span {
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: var(--hover-color);
+    box-shadow: none;
+  }
+
+}
+
+.selectWrapper .selectControl .react-select__control--is-focused {
+  border-color: var(--hover-color) !important;
+  box-shadow: none !important;
+}
+
+.selectWrapper .selectDropdownIndicator {
+  color: #121417;
+}
+
+.selectWrapper .selectMenu {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: none !important;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  line-height: 1.11;
+  z-index: 220;
+}
+
+.selectsContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 32px;
+  width: 100%;
+  max-width: 584px;
+}
+
+.selectLabel {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28;
+  color: #8a8a89;
+}
+
+
+.selectWrapper {
+  margin-top: 8px;
+}
+
+.selectWrapper .selectControl {
+  border-radius: 14px;
+  border-color: transparent;
+  padding: 14px;
+  width: 220px;
+  height: 48px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color var(--transition);
+
+  div {
+    padding: 0;
+    margin: 0;
+  }
+
+  span {
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: var(--hover-color);
+    box-shadow: none;
+  }
+
+}
+
+.selectWrapper .selectControl .react-select__control--is-focused {
+  border-color: var(--hover-color) !important;
+  box-shadow: none !important;
+}
+
+.selectWrapper .selectDropdownIndicator {
+  color: #121417;
+}
+
+.selectWrapper .selectMenu {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: none !important;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  line-height: 1.11;
+  z-index: 220;
+}
+
+.selectWrapper .selectOption {
+  color: #8a8a89 !important;
+  padding: 10px 12px;
+  background-color: transparent !important;
+}
+
+.selectWrapper .selectOption:hover,
+.selectWrapper .selectOption--is-focused {
+  background-color: transparent !important;
+  color: #121417 !important;
+  cursor: pointer;
+  box-shadow: none !important;
+  border-color: var(--hover-color) !important;
+}
+
+.selectWrapper .selectOption--is-selected {
+  background-color: #ddd !important;
+  color: #121417 !important;
+  box-shadow: none !important;
+  border-color: var(--hover-color) !important;
+}
+
+
+.selectWrapper .selectSingleValue {
+  color: #333 !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+  border-color: var(--hover-color) !important;
+  color: #8a8a89 !important;
+  padding: 10px 12px;
+  background-color: transparent !important;
+}
+
+.selectWrapper .selectOption:hover,
+.selectWrapper .selectOption--is-focused {
+  background-color: transparent !important;
+  color: #121417 !important;
+  cursor: pointer;
+}
+
+.selectWrapper .selectOption--is-selected {
+  background-color: #ddd !important;
+  color: #121417 !important;
+}
+
+.selectWrapper .selectSingleValue {
+  color: #333 !important;
+  font-weight: 500 !important;
+}
