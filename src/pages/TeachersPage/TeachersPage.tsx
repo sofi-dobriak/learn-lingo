@@ -13,6 +13,7 @@ import {
   selectTeachers,
 } from '../../redux/teachers/teachersSelectors';
 import Button from '../../components/common/Button/Button';
+import SelectBlock from '../../components/common/SelectBlock/SelectBlock';
 
 const TeachersPage = () => {
   const dispatch = useAppDispatch();
@@ -46,6 +47,7 @@ const TeachersPage = () => {
         {isLoading && <h2>Loading...</h2>}
         {!isLoading && !error && (
           <>
+            <SelectBlock />
             <TeachersList teachers={teachers} />
             {hasMore && (
               <Button

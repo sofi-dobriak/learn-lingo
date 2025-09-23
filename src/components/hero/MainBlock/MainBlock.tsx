@@ -21,7 +21,13 @@ const MainBlock = () => {
       <picture>
         <source srcSet='/images/hero.webp 1x, /images/hero@2x.webp 2x' type='image/webp' />
         <source srcSet='/images/hero.png 1x, /images/hero@2x.png 2x' type='image/png' />
-        <img src='/images/hero.png' alt='Hero screen image' className={s.heroImage} />
+        <img
+          src='/images/hero.png'
+          alt='Hero screen image'
+          className={s.heroImage}
+          width={568}
+          height={530}
+        />
       </picture>
     </div>
   );

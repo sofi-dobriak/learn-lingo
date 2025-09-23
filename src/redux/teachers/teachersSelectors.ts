@@ -7,3 +7,7 @@ export const selectError = (state: RootState) => state.teachers.error;
 export const selectHasMore = (state: RootState) => state.teachers.hasMore;
 export const selectLastKey = (state: RootState) => state.teachers.lastKey;
 export const selectIsLoadingMore = (state: RootState) => state.teachers.isLoadingMore;
+
+export const selectLanguages = (state: RootState) => state.teachers.languages;
+export const selectLevels = (state: RootState) => state.teachers.levels;
+export const selectPrices = (state: RootState) => state.teachers.prices;
