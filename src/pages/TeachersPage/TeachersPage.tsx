@@ -44,11 +44,13 @@ const TeachersPage = () => {
   return (
     <section className={s.teachersPage}>
       <Container>
-        {isLoading && <h2>Loading...</h2>}
+        {isLoading && <h2 className={s.loading}>Loading...</h2>}
         {!isLoading && !error && (
           <>
             <SelectBlock />
-            <TeachersList teachers={teachers} />
+
+            {teachers.length === 0 && <h2 className={s.noCards}>No cards</h2>}
+            {teachers.length > 0 && <TeachersList teachers={teachers} />}
             {hasMore && teachers.length > 0 && (
               <Button
                 onClick={handleLoadMore}

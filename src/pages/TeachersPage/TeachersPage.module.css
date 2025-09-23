@@ -16,3 +16,8 @@
 .allLoadedInfo {
   text-align: center;
 }
+
+.loading,
+.noCards {
+  height: 100vh;
+}
