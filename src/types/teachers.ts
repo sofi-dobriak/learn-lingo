@@ -19,3 +19,10 @@ export interface Teacher {
   reviews: Review[];
   surname: string;
 }
+
+export interface FetchTeachers {
+  teachers: Teacher[];
+  lastKey: string;
+  hasMore: boolean;
+  reset: boolean;
+}

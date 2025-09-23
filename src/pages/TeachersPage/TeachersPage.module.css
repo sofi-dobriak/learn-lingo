@@ -2,3 +2,17 @@
   padding: 32px 0;
   background-color: #f8f8f8;
 }
+
+.loadMoreButton {
+  display: block;
+  margin: 0 auto;
+  max-width: 184px;
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
+
+.allLoadedInfo {
+  text-align: center;
+}
