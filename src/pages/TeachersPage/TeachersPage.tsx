@@ -10,14 +10,14 @@ import {
   selectIsLoading,
   selectIsLoadingMore,
   selectLastKey,
-  selectTeachers,
 } from '../../redux/teachers/teachersSelectors';
 import Button from '../../components/common/Button/Button';
 import SelectBlock from '../../components/common/SelectBlock/SelectBlock';
+import { selectFilteredTeachers } from '../../redux/filters/filterSelectors';
 
 const TeachersPage = () => {
   const dispatch = useAppDispatch();
-  const teachers = useAppSelector(selectTeachers);
+  const teachers = useAppSelector(selectFilteredTeachers);
   const isLoading = useAppSelector(selectIsLoading);
   const error = useAppSelector(selectError);
   const hasMore = useAppSelector(selectHasMore);
@@ -49,7 +49,7 @@ const TeachersPage = () => {
           <>
             <SelectBlock />
             <TeachersList teachers={teachers} />
-            {hasMore && (
+            {hasMore && teachers.length > 0 && (
               <Button
                 onClick={handleLoadMore}
                 className={s.loadMoreButton}

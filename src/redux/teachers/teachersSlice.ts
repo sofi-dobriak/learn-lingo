@@ -7,9 +7,9 @@ import {
   fetchTeachers,
 } from './teachersOperations';
 
-interface SelectOption {
-  value: string;
-  label: string;
+export interface SelectOption {
+  value: string | number;
+  label: string | number;
 }
 
 interface PriceOption {
