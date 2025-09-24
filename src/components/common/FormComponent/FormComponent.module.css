@@ -1,0 +1,55 @@
+.inputContainer {
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  border-radius: 12px;
+  padding: 16px 18px;
+  width: 100%;
+  max-width: 438px;
+  margin-bottom: 18px;
+  cursor: text;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  transition: border-color var(--transition);
+
+  &:last-of-type {
+    margin-bottom: 40;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: var(--hover-color);
+  }
+}
+
+.input {
+  padding: 0;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.showHidePassButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.showHidePassIcon {
+  font-size: 20px;
+  color: #121417;
+  transition: color var(--transition);
+
+  .showHidePassButton:hover &,
+  .showHidePassButton:focus & {
+    color: var(--hover-color);
+  }
+}
+
+.error {}

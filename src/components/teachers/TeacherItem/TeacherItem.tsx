@@ -9,6 +9,8 @@ import Levels from '../teacher/Levels/Levels';
 import Reviews from '../teacher/Reviews/Reviews';
 import TeacherName from '../teacher/TeacherName/TeacherName';
 import s from './TeacherItem.module.css';
+import { useAppDispatch } from '../../../redux/hooks';
+import { openModal } from '../../../redux/modals/modalSlice';
 
 interface TeacherItemProps {
   teacher: Teacher;
@@ -17,6 +19,8 @@ interface TeacherItemProps {
 }
 
 const TeacherItem = ({ teacher, isExpanded, handleToggleReviews }: TeacherItemProps) => {
+  const dispatch = useAppDispatch();
+
   return (
     <>
       <div className={s.teacherAvatarContainer}>
@@ -58,6 +62,7 @@ const TeacherItem = ({ teacher, isExpanded, handleToggleReviews }: TeacherItemPr
         <Levels levels={teacher.levels} />
 
         <Button
+          onClick={() => dispatch(openModal('booking'))}
           aria-label='Button for booking a trial lesson'
           className={clsx(s.bookTrialLessonButton, isExpanded && s.visible)}
         >

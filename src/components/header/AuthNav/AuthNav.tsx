@@ -1,22 +1,23 @@
-import { NavLink } from 'react-router-dom';
 import s from './AuthNav.module.css';
-import { setActiveClass } from '../../../utils/setActiveClass';
+import Button from '../../common/Button/Button';
+import { useAppDispatch } from '../../../redux/hooks';
+import { openModal } from '../../../redux/modals/modalSlice';
 const AuthNav = () => {
+  const dispatch = useAppDispatch();
+
   return (
     <nav>
       <ul className={s.loginRegisterLinksList}>
         <li>
-          <NavLink to='/login' className={setActiveClass(s.loginLink, s.active)}>
+          <button type='button' onClick={() => dispatch(openModal('login'))}>
             <svg width={20} height={20}>
               <use href='/images/icons.svg#icon-login' className={s.loginIcon}></use>
             </svg>
             Login
-          </NavLink>
+          </button>
         </li>
         <li>
-          <NavLink to='/register' className={s.registerLink}>
-            Register
-          </NavLink>
+          <Button onClick={() => dispatch(openModal('register'))}>Register</Button>
         </li>
       </ul>
     </nav>
