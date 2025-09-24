@@ -6,7 +6,7 @@ import {
   fetchAllLevels,
   fetchAllPrices,
 } from '../../../redux/teachers/teachersOperations';
-import { useEffect } from 'react';
+import { useEffect, useId } from 'react';
 import {
   selectLanguages,
   selectLevels,
@@ -18,6 +18,10 @@ import type { SingleValue } from 'react-select';
 import Button from '../Button/Button';
 
 const SelectBlock = () => {
+  const languageID = useId();
+  const levelID = useId();
+  const priceID = useId();
+
   const dispatch = useAppDispatch();
 
   const languages = useAppSelector(selectLanguages);
@@ -53,62 +57,70 @@ const SelectBlock = () => {
   };
 
   return (
-    <div className={s.selectsContainer}>
-      <label htmlFor='languages' className={s.selectLabel}>
-        Languages
-        <Select
-          options={languages}
-          id='languages'
-          defaultValue={languages[0]}
-          value={languages.find(opt => opt.value === selectedLanguage) || null}
-          onChange={handleLanguageChange}
-          classNames={{
-            container: () => s.selectWrapper,
-            control: () => s.selectControl,
-            dropdownIndicator: () => s.selectDropdownIndicator,
-            menu: () => s.selectMenu,
-            option: () => s.selectOption,
-          }}
-        />
-      </label>
+    <div className={s.selectInputsButtonContainer}>
+      <div className={s.selectsContainer}>
+        <label htmlFor={languageID} className={s.selectLabel}>
+          Languages
+          <Select
+            placeholder='French'
+            options={languages}
+            id={languageID}
+            value={languages.find(opt => opt.value === selectedLanguage) || null}
+            onChange={handleLanguageChange}
+            classNames={{
+              container: () => s.selectWrapper,
+              control: () => s.selectControl,
+              dropdownIndicator: () => s.selectDropdownIndicator,
+              menu: () => s.selectMenu,
+              option: () => s.selectOption,
+            }}
+          />
+        </label>
 
-      <label htmlFor='levels' className={s.selectLabel}>
-        Level of knowledge
-        <Select
-          options={levels}
-          id='levels'
-          defaultValue={levels[0]}
-          value={levels.find(opt => opt.value === selectedLevel) || null}
-          onChange={handleLevelChange}
-          classNames={{
-            container: () => s.selectWrapper,
-            control: () => s.selectControl,
-            dropdownIndicator: () => s.selectDropdownIndicator,
-            menu: () => s.selectMenu,
-            option: () => s.selectOption,
-          }}
-        />
-      </label>
+        <label htmlFor={levelID} className={s.selectLabel}>
+          Level of knowledge
+          <Select
+            placeholder='A1 Beginner'
+            options={levels}
+            id={levelID}
+            value={levels.find(opt => opt.value === selectedLevel) || null}
+            onChange={handleLevelChange}
+            classNames={{
+              container: () => s.selectWrapper,
+              control: () => s.selectControl,
+              dropdownIndicator: () => s.selectDropdownIndicator,
+              menu: () => s.selectMenu,
+              option: () => s.selectOption,
+            }}
+          />
+        </label>
 
-      <label htmlFor='prices' className={s.selectLabel}>
-        Price ($)
-        <Select
-          options={prices}
-          id='prices'
-          defaultValue={prices[0]}
-          value={prices.find(opt => opt.value === selectedPrice) || null}
-          onChange={handlePriceChange}
-          classNames={{
-            container: () => s.selectWrapper,
-            control: () => s.selectControl,
-            dropdownIndicator: () => s.selectDropdownIndicator,
-            menu: () => s.selectMenu,
-            option: () => s.selectOption,
-          }}
-        />
-      </label>
+        <label htmlFor={priceID} className={s.selectLabel}>
+          Price ($)
+          <Select
+            placeholder='30$'
+            options={prices}
+            id={priceID}
+            value={prices.find(opt => opt.value === selectedPrice) || null}
+            onChange={handlePriceChange}
+            classNames={{
+              container: () => s.selectWrapper,
+              control: () => s.selectControl,
+              dropdownIndicator: () => s.selectDropdownIndicator,
+              menu: () => s.selectMenu,
+              option: () => s.selectOption,
+            }}
+          />
+        </label>
+      </div>
 
-      <Button onClick={() => dispatch(resetFilters())}>Reset</Button>
+      <Button
+        onClick={() => dispatch(resetFilters())}
+        variant='secondary'
+        className={s.resetButton}
+      >
+        Reset
+      </Button>
     </div>
   );
 };

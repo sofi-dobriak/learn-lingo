@@ -1,10 +1,14 @@
-.selectsContainer {
+.selectInputsButtonContainer {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
   margin-bottom: 32px;
-  width: 100%;
-  max-width: 584px;
+  max-width: 600px;
+}
+
+.selectsContainer {
+  display: flex;
+  gap: 20px;
 }
 
 .selectLabel {
@@ -13,74 +17,6 @@
   line-height: 1.28;
   color: #8a8a89;
 }
-
-
-.selectWrapper {
-  margin-top: 8px;
-}
-
-.selectWrapper .selectControl {
-  border-radius: 14px;
-  border-color: transparent;
-  padding: 14px;
-  width: 220px;
-  height: 48px;
-  background-color: #fff;
-  cursor: pointer;
-  transition: border-color var(--transition);
-
-  div {
-    padding: 0;
-    margin: 0;
-  }
-
-  span {
-    display: none;
-  }
-
-  &:hover,
-  &:focus {
-    border-color: var(--hover-color);
-    box-shadow: none;
-  }
-
-}
-
-.selectWrapper .selectControl .react-select__control--is-focused {
-  border-color: var(--hover-color) !important;
-  box-shadow: none !important;
-}
-
-.selectWrapper .selectDropdownIndicator {
-  color: #121417;
-}
-
-.selectWrapper .selectMenu {
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: none !important;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  line-height: 1.11;
-  z-index: 220;
-}
-
-.selectsContainer {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 32px;
-  width: 100%;
-  max-width: 584px;
-}
-
-.selectLabel {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.28;
-  color: #8a8a89;
-}
-
 
 .selectWrapper {
   margin-top: 8px;
@@ -184,4 +120,8 @@
 
 .selectWrapper s.selectMenu {
   box-shadow: 0 20px 69px 0 rgba(0, 0, 0, 0.07) !important;
+}
+
+.resetButton {
+  padding-top: 24px;
 }

@@ -53,6 +53,7 @@ const TeachersPage = () => {
             {teachers.length > 0 && <TeachersList teachers={teachers} />}
             {hasMore && teachers.length > 0 && (
               <Button
+                variant='primary'
                 onClick={handleLoadMore}
                 className={s.loadMoreButton}
                 disabled={isLoadingMore}
