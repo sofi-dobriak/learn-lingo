@@ -25,23 +25,16 @@ function App() {
           <Route path='/' element={<SharedLayout />}>
             <Route index element={<HomePage />} />
             <Route path='/teachers' element={<TeachersPage />} />
+
             <Route
               path='/favorites'
-              element={<PrivateRoute redirectTo='/login' component={<FavoritesPage />} />}
+              element={<PrivateRoute redirectTo='/teachers' component={<FavoritesPage />} />}
             />
           </Route>
 
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </Suspense>
-
-      {/* {modalType && (
-        <Modal>
-          {modalType === 'login' && <Login />}
-          {modalType === 'register' && <Register />}
-          {modalType === 'booking' && <Booking />}
-        </Modal>
-      )} */}
 
       <Modal>
         {modalType === 'login' && <Login />}
