@@ -1,3 +1,4 @@
+import Button from '../../../common/Button/Button';
 import s from './ExpandButton.module.css';
 
 interface ExpandButtonProps {
@@ -8,14 +9,15 @@ interface ExpandButtonProps {
 
 const ExpandButton = ({ id, isExpanded, handleToggleReviews }: ExpandButtonProps) => {
   return (
-    <button
+    <Button
+      className={s.readMoreButton}
+      variant='secondary'
       onClick={() => handleToggleReviews(id)}
       type='button'
       aria-label='Button for open more information about the teachers (review and booking button)'
-      className={s.readMoreButton}
     >
       {isExpanded ? 'Read less' : 'Read more'}
-    </button>
+    </Button>
   );
 };
 

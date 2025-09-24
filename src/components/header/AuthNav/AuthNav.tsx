@@ -9,15 +9,25 @@ const AuthNav = () => {
     <nav>
       <ul className={s.loginRegisterLinksList}>
         <li>
-          <button type='button' onClick={() => dispatch(openModal('login'))}>
+          <Button
+            onClick={() => dispatch(openModal('login'))}
+            variant='secondary'
+            className={s.loginButton}
+          >
             <svg width={20} height={20}>
               <use href='/images/icons.svg#icon-login' className={s.loginIcon}></use>
             </svg>
             Login
-          </button>
+          </Button>
         </li>
         <li>
-          <Button onClick={() => dispatch(openModal('register'))}>Register</Button>
+          <Button
+            onClick={() => dispatch(openModal('register'))}
+            variant='primary'
+            className={s.registerButton}
+          >
+            Register
+          </Button>
         </li>
       </ul>
     </nav>

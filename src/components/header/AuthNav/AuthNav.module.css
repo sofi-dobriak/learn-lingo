@@ -4,21 +4,11 @@
   gap: 16px;
 }
 
-.loginLink {
-  display: flex;
+.loginRegisterLinksList .loginButton {
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-
-  font-weight: 700;
-  line-height: 1.25;
-  color: var(--main-text-color);
-  padding: 30px 0;
-  transition: color var(--transition);
-
-  &:hover,
-  &:focus {
-    color: var(--hover-color)
-  }
+  padding: 20px 0;
 }
 
 .loginIcon {
@@ -26,19 +16,16 @@
   stroke: var(--secondary-border-color)
 }
 
-.registerLink {
-  font-weight: 700;
-  line-height: 1.25;
+.loginRegisterLinksList .registerButton {
   color: #fff;
-  border-radius: 12px;
-  background-color: var(--secondary-button-bg-color);
-  padding: 14px 40px;
-  transition: all var(--transition);
+  background: #121417;
+  min-width: 166px;
+  transition: color var(--transition);
+  padding: 10px;
 
   &:hover,
   &:focus {
-    color: var(--main-text-color);
-    background-color: var(--hover-color);
+    color: #121417;
   }
 }
 

@@ -62,6 +62,7 @@ const TeacherItem = ({ teacher, isExpanded, handleToggleReviews }: TeacherItemPr
         <Levels levels={teacher.levels} />
 
         <Button
+          variant='primary'
           onClick={() => dispatch(openModal('booking'))}
           aria-label='Button for booking a trial lesson'
           className={clsx(s.bookTrialLessonButton, isExpanded && s.visible)}

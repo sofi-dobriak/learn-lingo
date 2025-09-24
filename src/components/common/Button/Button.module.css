@@ -1,4 +1,4 @@
-.button {
+.buttonPrimary {
   font-weight: 700;
   font-size: 18px;
   line-height: 1.5;
@@ -14,5 +14,23 @@
   &:hover,
   &:focus {
     background-color: #ffdc86;
+  }
+}
+
+.buttonSecondary {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+  color: #121417;
+  transition: color var(--transition);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: #ffc531;
   }
 }

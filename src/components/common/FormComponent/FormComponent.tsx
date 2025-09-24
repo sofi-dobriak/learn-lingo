@@ -81,7 +81,9 @@ const FormComponent = ({ type }: FormProps) => {
           <ErrorMessage name='userPassword' component='span' className={s.error} />
         </label>
 
-        <Button type='submit'>{type === 'register' ? 'Sign Up' : 'Log In'}</Button>
+        <Button type='submit' variant='primary'>
+          {type === 'register' ? 'Sign Up' : 'Log In'}
+        </Button>
       </Form>
     </Formik>
   );
