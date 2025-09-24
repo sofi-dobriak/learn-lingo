@@ -2,9 +2,10 @@ import clsx from 'clsx';
 import s from './Modal.module.css';
 import { createPortal } from 'react-dom';
 import { closeModal, type ModalType } from '../../../redux/modals/modalSlice';
-import { useAppDispatch } from '../../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import type React from 'react';
 import { useEffect } from 'react';
+import { selectIsVisible } from '../../../redux/modals/modalSelectors';
 
 interface ModalProps {
   type?: ModalType;
@@ -14,6 +15,7 @@ interface ModalProps {
 
 const Modal = ({ children, className = '' }: ModalProps) => {
   const dispatch = useAppDispatch();
+  const isVisible = useAppSelector(selectIsVisible);
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
@@ -33,7 +35,7 @@ const Modal = ({ children, className = '' }: ModalProps) => {
   }, [dispatch]);
 
   return createPortal(
-    <div className={s.modalBackdrop} onClick={handleBackdropClick}>
+    <div className={clsx(s.modalBackdrop, isVisible && s.visible)} onClick={handleBackdropClick}>
       <div className={clsx(s.modalContent, className)}>
         <button onClick={() => dispatch(closeModal())} type='button' className={s.buttonClose}>
           <svg width={32} height={32} className={s.iconClose}>

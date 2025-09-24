@@ -35,13 +35,19 @@ function App() {
         </Routes>
       </Suspense>
 
-      {modalType && (
+      {/* {modalType && (
         <Modal>
           {modalType === 'login' && <Login />}
           {modalType === 'register' && <Register />}
           {modalType === 'booking' && <Booking />}
         </Modal>
-      )}
+      )} */}
+
+      <Modal>
+        {modalType === 'login' && <Login />}
+        {modalType === 'register' && <Register />}
+        {modalType === 'booking' && <Booking />}
+      </Modal>
     </>
   );
 }
