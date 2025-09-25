@@ -1,14 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 import Loader from './components/common/Loader/Loader';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Modal from './components/common/Modal/Modal';
-import { useAppSelector } from './redux/hooks';
+import { useAppDispatch, useAppSelector } from './redux/hooks';
 import { selectModalType } from './redux/modals/modalSelectors';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Booking from './components/common/Booking/Booking';
+import { checkAuthState } from './redux/auth/authOperations';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const TeachersPage = lazy(() => import('./pages/TeachersPage/TeachersPage'));
@@ -16,7 +17,12 @@ const FavoritesPage = lazy(() => import('./pages/FavoritesPage/FavoritesPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 
 function App() {
+  const dispatch = useAppDispatch();
   const modalType = useAppSelector(selectModalType);
+
+  useEffect(() => {
+    dispatch(checkAuthState());
+  }, [dispatch]);
 
   return (
     <>

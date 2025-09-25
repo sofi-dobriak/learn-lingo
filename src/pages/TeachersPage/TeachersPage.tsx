@@ -14,6 +14,7 @@ import {
 import Button from '../../components/common/Button/Button';
 import SelectBlock from '../../components/common/SelectBlock/SelectBlock';
 import { selectFilteredTeachers } from '../../redux/filters/filterSelectors';
+import Loader from '../../components/common/Loader/Loader';
 
 const TeachersPage = () => {
   const dispatch = useAppDispatch();
@@ -44,7 +45,7 @@ const TeachersPage = () => {
   return (
     <section className={s.teachersPage}>
       <Container>
-        {isLoading && <h2 className={s.loading}>Loading...</h2>}
+        {isLoading && <Loader />}
         {!isLoading && !error && (
           <>
             <SelectBlock />
