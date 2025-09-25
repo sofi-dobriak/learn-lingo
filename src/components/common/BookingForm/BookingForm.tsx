@@ -3,28 +3,28 @@ import TextInput from '../TextInput/TextInput';
 import s from './BookingForm.module.css';
 import Button from '../Button/Button';
 import RadioInput from '../RadioInput/RadioInput';
-import { useForm } from 'react-hook-form';
+// import { useForm } from 'react-hook-form';
 
 const BookingForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { errors },
+  // } = useForm();
 
   const fullnameID = useId();
   const email = useId();
   const phoneNumber = useId();
 
-  const onSubmit = data => {
-    console.log(data);
-  };
+  // const onSubmit = data => {
+  //   console.log(data);
+  // };
 
   return (
     <>
       <h2 className={s.bookingFormTitle}>What is your main reason for learning English?</h2>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form>
         <div className={s.radioInputsContainer}>
           <RadioInput id='career-and-business' value='Career and business' />
           <RadioInput id='lesson-for-kids' value='Lesson for kids' />
