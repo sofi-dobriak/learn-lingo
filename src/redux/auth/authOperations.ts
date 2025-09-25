@@ -8,6 +8,7 @@ import {
 } from 'firebase/auth';
 import { auth } from '../../config/firebase';
 import type { RegisterData, LoginData, User } from '../../types/auth';
+import toast from 'react-hot-toast';
 
 const transformUser = (firebaseUser: FirebaseUser): User => ({
   uid: firebaseUser.uid,
@@ -26,12 +27,14 @@ export const registerUser = createAsyncThunk(
         displayName: displayName,
       });
 
+      toast.success('Successfully registered');
       return transformUser(userCredential.user);
     } catch (error: unknown) {
       let errorMessage = 'Registration error';
 
       if (error instanceof Error && 'code' in error) {
         if (error.code === 'auth/email-already-in-use') {
+          toast.error('This email address is already in use.');
           errorMessage = 'This email address is already in use.';
         }
       }
@@ -46,13 +49,18 @@ export const loginUser = createAsyncThunk(
   async ({ email, password }: LoginData, ThunkAPI) => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      toast.success('Successfully logged in');
       return transformUser(userCredential.user);
     } catch (error: unknown) {
-      let errorMessage = 'Login error';
+      const errorMessage = 'Login failed. Please check your credentials.';
 
       if (error instanceof Error && 'code' in error) {
-        if (error.code === 'auth/user-not-found') {
-          errorMessage = 'User not found';
+        if (error instanceof Error && 'code' in error) {
+          if (error.code === 'auth/invalid-credential') {
+            toast.error(errorMessage);
+          } else {
+            toast.error(errorMessage);
+          }
         }
       }
 

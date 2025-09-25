@@ -1,10 +1,18 @@
+.labelInputContainer {
+  position: relative;
+  margin-bottom: 30px;
+
+  &:last-of-type {
+    margin-bottom: 40px;
+  }
+}
+
 .inputContainer {
   border: 1px solid rgba(18, 20, 23, 0.1);
   border-radius: 12px;
   padding: 16px 18px;
   width: 100%;
   max-width: 438px;
-  margin-bottom: 18px;
   cursor: text;
 
   display: flex;
@@ -13,14 +21,15 @@
 
   transition: border-color var(--transition);
 
-  &:last-of-type {
-    margin-bottom: 40;
-  }
 
   &:hover,
   &:focus {
     border-color: var(--hover-color);
   }
+}
+
+.inputError {
+  border-color: red;
 }
 
 .input {
@@ -52,4 +61,10 @@
   }
 }
 
-.error {}
+.error {
+  position: absolute;
+  top: 54px;
+  left: 10px;
+  color: red;
+  font-size: 14px;
+}
