@@ -1,6 +1,7 @@
 import type { RootState } from '../store';
 
 export const selectTeachers = (state: RootState) => state.teachers.teachers;
+export const selectTeacherById = (state: RootState) => state.teachers.teacher;
 export const selectIsLoading = (state: RootState) => state.teachers.isLoading;
 export const selectError = (state: RootState) => state.teachers.error;
 export const selectHasMore = (state: RootState) => state.teachers.hasMore;

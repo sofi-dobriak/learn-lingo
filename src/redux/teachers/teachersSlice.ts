@@ -19,6 +19,7 @@ interface PriceOption {
 
 interface InitialState {
   teachers: Teacher[];
+  teacher: Teacher | null;
   languages: SelectOption[];
   levels: SelectOption[];
   prices: PriceOption[];
@@ -32,6 +33,7 @@ interface InitialState {
 
 const initialState: InitialState = {
   teachers: [],
+  teacher: null,
   languages: [],
   levels: [],
   prices: [],

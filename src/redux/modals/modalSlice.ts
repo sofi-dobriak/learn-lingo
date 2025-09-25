@@ -5,11 +5,13 @@ export type ModalType = 'login' | 'register' | 'booking' | 'info';
 interface initialState {
   isVisible: boolean;
   modalType: ModalType | null;
+  teacherId?: string | null;
 }
 
 const initialState: initialState = {
   isVisible: false,
   modalType: null,
+  teacherId: null,
 };
 
 const slice = createSlice({
@@ -18,12 +20,10 @@ const slice = createSlice({
   reducers: {
     openModal: (state, action) => {
       state.isVisible = true;
-      state.modalType = action.payload;
+      state.modalType = action.payload.modalType;
+      state.teacherId = action.payload.teacherId;
     },
-    closeModal: state => {
-      state.isVisible = false;
-      state.modalType = null;
-    },
+    closeModal: () => initialState,
   },
 });
 

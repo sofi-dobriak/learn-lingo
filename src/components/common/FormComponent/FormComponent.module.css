@@ -7,40 +7,6 @@
   }
 }
 
-.inputContainer {
-  border: 1px solid rgba(18, 20, 23, 0.1);
-  border-radius: 12px;
-  padding: 16px 18px;
-  width: 100%;
-  max-width: 438px;
-  cursor: text;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  transition: border-color var(--transition);
-
-
-  &:hover,
-  &:focus {
-    border-color: var(--hover-color);
-  }
-}
-
-.inputError {
-  border-color: red;
-}
-
-.input {
-  padding: 0;
-  border: none;
-
-  &:focus {
-    outline: none;
-  }
-}
-
 .showHidePassButton {
   display: flex;
   align-items: center;
@@ -51,6 +17,9 @@
 }
 
 .showHidePassIcon {
+  position: absolute;
+  top: 16px;
+  right: 18px;
   font-size: 20px;
   color: #121417;
   transition: color var(--transition);

@@ -26,10 +26,8 @@ const TeachersPage = () => {
   const isLoadingMore = useAppSelector(selectIsLoadingMore);
 
   useEffect(() => {
-    if (teachers.length === 0) {
-      dispatch(fetchTeachers({ reset: true }));
-    }
-  }, [dispatch, teachers.length]);
+    dispatch(fetchTeachers({ reset: true }));
+  }, [dispatch]);
 
   const handleLoadMore = () => {
     if (hasMore && !isLoadingMore) {

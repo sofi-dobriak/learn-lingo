@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from './redux/hooks';
 import { selectModalType } from './redux/modals/modalSelectors';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
-import Booking from './components/common/Booking/Booking';
+import Booking from './components/Booking/Booking';
 import { checkAuthState } from './redux/auth/authOperations';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));

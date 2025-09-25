@@ -21,6 +21,10 @@ interface TeacherItemProps {
 const TeacherItem = ({ teacher, isExpanded, handleToggleReviews }: TeacherItemProps) => {
   const dispatch = useAppDispatch();
 
+  const handleOpenBooking = () => {
+    dispatch(openModal({ modalType: 'booking', teacherId: teacher.id }));
+  };
+
   return (
     <>
       <div className={s.teacherAvatarContainer}>
@@ -62,8 +66,9 @@ const TeacherItem = ({ teacher, isExpanded, handleToggleReviews }: TeacherItemPr
         <Levels levels={teacher.levels} />
 
         <Button
+          type='button'
           variant='primary'
-          onClick={() => dispatch(openModal('booking'))}
+          onClick={handleOpenBooking}
           aria-label='Button for booking a trial lesson'
           className={clsx(s.bookTrialLessonButton, isExpanded && s.visible)}
         >

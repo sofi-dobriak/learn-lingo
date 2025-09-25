@@ -7,7 +7,7 @@ import { closeModal, type ModalType } from '../../../redux/modals/modalSlice';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch } from '../../../redux/hooks';
 import { loginUser, registerUser } from '../../../redux/auth/authOperations';
-import clsx from 'clsx';
+import TextInput from '../TextInput/TextInput';
 
 interface FormProps {
   type: ModalType;
@@ -65,65 +65,49 @@ const FormComponent = ({ type }: FormProps) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       {type === 'register' && (
         <div className={s.labelInputContainer}>
-          <label
-            className={clsx(s.inputContainer, { [s.inputError]: errors.userName })}
-            htmlFor={userNameID}
-          >
-            <input
-              {...register('userName', { required: true, maxLength: 20 })}
-              name='userName'
-              id={userNameID}
-              type='text'
-              placeholder='Name'
-              className={s.input}
-              autoComplete='name'
-            />
-          </label>
+          <TextInput
+            {...register('userName', { required: true, maxLength: 20 })}
+            name='userName'
+            id={userNameID}
+            placeholder='Name'
+            autoComplete='name'
+            hasError={!!errors.userName}
+          />
           {errors.userName && <span className={s.error}>Required. Max length 20 chars</span>}
         </div>
       )}
 
       <div className={s.labelInputContainer}>
-        <label
-          className={clsx(s.inputContainer, { [s.inputError]: errors.userName })}
-          htmlFor={userEmailID}
-        >
-          <input
-            {...register('userEmail', { required: true })}
-            name='userEmail'
-            id={userEmailID}
-            type='email'
-            placeholder='Email'
-            className={s.input}
-            autoComplete='email'
-          />
-        </label>
+        mlFor={userEmailID}
+        <TextInput
+          {...register('userEmail', { required: true })}
+          name='userEmail'
+          id={userEmailID}
+          placeholder='Email'
+          autoComplete='email'
+          hasError={!!errors.userName}
+        />
         {errors.userEmail && <span className={s.error}>Required. Invalid email format</span>}
       </div>
 
       <div className={s.labelInputContainer}>
-        <label
-          className={clsx(s.inputContainer, { [s.inputError]: errors.userName })}
-          htmlFor={userPasswordID}
-        >
-          <input
-            {...register('userPassword', { required: true, minLength: 8 })}
-            name='userPassword'
-            id={userPasswordID}
-            type={isPassVisible ? 'text' : 'password'}
-            placeholder='Password'
-            className={s.input}
-            autoComplete='new-password'
-          />
+        <TextInput
+          {...register('userPassword', { required: true, minLength: 8 })}
+          name='userPassword'
+          id={userPasswordID}
+          type={isPassVisible ? 'text' : 'password'}
+          placeholder='Password'
+          autoComplete='new-password'
+          hasError={!!errors.userName}
+        />
 
-          <button onClick={handleShowPass} type='button' className={s.showHidePassButton}>
-            {isPassVisible ? (
-              <GoEye className={s.showHidePassIcon} />
-            ) : (
-              <GoEyeClosed className={s.showHidePassIcon} />
-            )}
-          </button>
-        </label>
+        <button onClick={handleShowPass} type='button' className={s.showHidePassButton}>
+          {isPassVisible ? (
+            <GoEye className={s.showHidePassIcon} />
+          ) : (
+            <GoEyeClosed className={s.showHidePassIcon} />
+          )}
+        </button>
         {errors.userPassword && <span className={s.error}>Required. Min length 8 chars</span>}
       </div>
 

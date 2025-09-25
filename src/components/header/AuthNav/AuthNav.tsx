@@ -10,7 +10,7 @@ const AuthNav = () => {
       <ul className={s.loginRegisterLinksList}>
         <li>
           <Button
-            onClick={() => dispatch(openModal('login'))}
+            onClick={() => dispatch(openModal({ modalType: 'login' }))}
             variant='secondary'
             className={s.loginButton}
           >
@@ -22,7 +22,7 @@ const AuthNav = () => {
         </li>
         <li>
           <Button
-            onClick={() => dispatch(openModal('register'))}
+            onClick={() => dispatch(openModal({ modalType: 'register' }))}
             variant='primary'
             className={s.registerButton}
           >
