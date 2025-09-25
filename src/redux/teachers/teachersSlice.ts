@@ -22,7 +22,6 @@ interface InitialState {
   languages: SelectOption[];
   levels: SelectOption[];
   prices: PriceOption[];
-  favTeachers: Teacher[];
   isLoading: boolean;
   isLoadingMore: boolean;
   error: string | null;
@@ -36,7 +35,6 @@ const initialState: InitialState = {
   languages: [],
   levels: [],
   prices: [],
-  favTeachers: [],
   isLoading: false,
   isLoadingMore: false,
   error: null,
@@ -48,20 +46,7 @@ const initialState: InitialState = {
 const slice = createSlice({
   name: 'teachers',
   initialState,
-  reducers: {
-    resetTeachers: state => {
-      return {
-        ...initialState,
-        favTeachers: state.favTeachers,
-      };
-    },
-    addFavTeacher: (state, action: PayloadAction<Teacher>) => {
-      state.favTeachers.push(action.payload);
-    },
-    deleteFavTeacher: (state, action: PayloadAction<string>) => {
-      state.favTeachers = state.favTeachers.filter(favTeacher => favTeacher.id !== action.payload);
-    },
-  },
+  reducers: {},
   extraReducers: builder => {
     builder
 
@@ -128,5 +113,4 @@ const slice = createSlice({
   },
 });
 
-export const { resetTeachers, addFavTeacher, deleteFavTeacher } = slice.actions;
 export const teachersReducer = slice.reducer;

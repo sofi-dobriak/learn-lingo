@@ -1,22 +1,33 @@
 import { useCallback } from 'react';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
-import { selectFavTeachers } from '../redux/teachers/teachersSelectors';
 import type { Teacher } from '../types/teachers';
-import { addFavTeacher, deleteFavTeacher } from '../redux/teachers/teachersSlice';
+import { selectFavTeachers } from '../redux/favTeachers/favTeachersSelectors';
+import {
+  addFavoriteTeacher,
+  removeFavoriteTeacher,
+} from '../redux/favTeachers/favTeachersOperations';
+import { selectUser } from '../redux/auth/authSelectors';
+import toast from 'react-hot-toast';
 
 export const useFavTeachers = (teacherId: string, teacher: Teacher) => {
   const dispatch = useAppDispatch();
 
+  const user = useAppSelector(selectUser);
   const favTeachers = useAppSelector(selectFavTeachers);
   const isFav = favTeachers.some(favTeacher => favTeacher.id === teacherId);
 
   const handleToggleFav = useCallback(() => {
-    if (isFav) {
-      dispatch(deleteFavTeacher(teacherId));
-    } else {
-      dispatch(addFavTeacher(teacher));
+    if (!user) {
+      toast.error('Please login');
+      return;
     }
-  }, [dispatch, isFav, teacher, teacherId]);
+
+    if (isFav) {
+      dispatch(removeFavoriteTeacher({ userId: user?.uid, teacherId }));
+    } else {
+      dispatch(addFavoriteTeacher({ userId: user?.uid, teacher }));
+    }
+  }, [dispatch, user, isFav, teacher, teacherId]);
 
   return { isFav, handleToggleFav };
 };
