@@ -79,7 +79,7 @@ body {
   line-height: var(--line-height);
   letter-spacing: var(--letter-spacing);
   color: var(--main-text-color);
-  background: var(--main-block-color);
+  background-color: var(--secondary-block-bg);
 }
 
 input,

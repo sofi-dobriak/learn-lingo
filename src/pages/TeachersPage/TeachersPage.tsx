@@ -10,6 +10,7 @@ import {
   selectIsLoading,
   selectIsLoadingMore,
   selectLastKey,
+  selectTeachers,
 } from '../../redux/teachers/teachersSelectors';
 import Button from '../../components/common/Button/Button';
 import SelectBlock from '../../components/common/SelectBlock/SelectBlock';
@@ -18,6 +19,7 @@ import Loader from '../../components/common/Loader/Loader';
 
 const TeachersPage = () => {
   const dispatch = useAppDispatch();
+  const allTeachers = useAppSelector(selectTeachers);
   const teachers = useAppSelector(selectFilteredTeachers);
   const isLoading = useAppSelector(selectIsLoading);
   const error = useAppSelector(selectError);
@@ -40,6 +42,9 @@ const TeachersPage = () => {
     }
   };
 
+  const shouldShowLoadMore = hasMore && teachers.length > 0;
+  const shouldShowAllLoaded = !hasMore && teachers.length > 0 && allTeachers.length > 0;
+
   return (
     <section className={s.teachersPage}>
       <Container>
@@ -49,8 +54,10 @@ const TeachersPage = () => {
             <SelectBlock />
 
             {teachers.length === 0 && <h2 className={s.noCards}>No cards</h2>}
+
             {teachers.length > 0 && <TeachersList teachers={teachers} />}
-            {hasMore && teachers.length > 0 && (
+
+            {shouldShowLoadMore && (
               <Button
                 variant='primary'
                 onClick={handleLoadMore}
@@ -61,7 +68,7 @@ const TeachersPage = () => {
               </Button>
             )}
 
-            {!hasMore && <h2 className={s.allLoadedInfo}>All teachers loaded</h2>}
+            {shouldShowAllLoaded && <h2 className={s.allLoadedInfo}>All teachers loaded</h2>}
           </>
         )}
       </Container>

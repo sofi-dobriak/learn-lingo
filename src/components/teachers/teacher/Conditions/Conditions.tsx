@@ -14,11 +14,12 @@ const Conditions = ({ languages, lesson_info, conditions }: ConditionsProps) => 
           <span>Speaks:</span>
         </p>
         <ul className={s.speaksList}>
-          {languages.map((language, index) => (
-            <li key={index}>
-              <p>{language}</p>
-            </li>
-          ))}
+          {languages &&
+            languages.map((language, index) => (
+              <li key={index}>
+                <p>{language}</p>
+              </li>
+            ))}
         </ul>
       </li>
       <li className={s.speaksConditionsInfoItem}>
@@ -31,11 +32,12 @@ const Conditions = ({ languages, lesson_info, conditions }: ConditionsProps) => 
           <span>Conditions:</span>
         </p>
         <ul className={s.conditionsList}>
-          {conditions.map((condition, index) => (
-            <li key={index}>
-              <p>{condition}</p>
-            </li>
-          ))}
+          {conditions &&
+            conditions.map((condition, index) => (
+              <li key={index}>
+                <p>{condition}</p>
+              </li>
+            ))}
         </ul>
       </li>
     </ul>

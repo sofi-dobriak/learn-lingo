@@ -15,8 +15,10 @@ export const selectFilteredTeachers = createSelector(
 
     return teachers.filter(teacher => {
       const languageMatch =
-        !selectedLanguage || teacher.languages.includes(selectedLanguage as string);
-      const levelMatch = !selectedLevel || teacher.levels.includes(selectedLevel as string);
+        !selectedLanguage ||
+        (teacher.languages && teacher.languages.includes(selectedLanguage as string));
+      const levelMatch =
+        !selectedLevel || (teacher.levels && teacher.levels.includes(selectedLevel as string));
       const priceMatch = !selectedPrice || teacher.price_per_hour === selectedPrice;
 
       return languageMatch && levelMatch && priceMatch;
