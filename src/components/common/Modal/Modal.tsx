@@ -6,7 +6,6 @@ import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import type React from 'react';
 import { useEffect } from 'react';
 import { selectIsVisible, selectModalType } from '../../../redux/modals/modalSelectors';
-import Container from '../Container/Container';
 
 interface ModalProps {
   children: React.ReactNode;
@@ -37,22 +36,21 @@ const Modal = ({ children, className = '' }: ModalProps) => {
 
   return createPortal(
     <div className={clsx(s.modalBackdrop, isVisible && s.visible)} onClick={handleBackdropClick}>
-      <Container>
-        <div
-          className={clsx(
-            s.modalContent,
-            className,
-            modalType === 'booking' && s.bookingModalContent
-          )}
-        >
-          <button onClick={() => dispatch(closeModal())} type='button' className={s.buttonClose}>
-            <svg width={32} height={32} className={s.iconClose}>
-              <use href='/images/icons.svg#icon-close'></use>
-            </svg>
-          </button>
-          {children}
-        </div>
-      </Container>
+      <div
+        className={clsx(
+          s.modalContent,
+          className,
+          modalType === 'booking' && s.bookingModalContent,
+          modalType === 'mobileMenu' && s.mobileMenuContent
+        )}
+      >
+        <button onClick={() => dispatch(closeModal())} type='button' className={s.buttonClose}>
+          <svg width={32} height={32} className={s.iconClose}>
+            <use href='/images/icons.svg#icon-close'></use>
+          </svg>
+        </button>
+        {children}
+      </div>
     </div>,
     document.body
   );

@@ -8,12 +8,19 @@ import Button from '../../common/Button/Button';
 import { logoutUser } from '../../../redux/auth/authOperations';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { useMediaQueryView } from '../../../hooks/useMediaQueryView';
+import { openModal } from '../../../redux/modals/modalSlice';
+import toast from 'react-hot-toast';
 
 const Header = () => {
   const dispatch = useAppDispatch();
   const user = useAppSelector(selectUser);
   const isLoggedIn = useAppSelector(selectIsAuthenticated);
   const { isDesktop } = useMediaQueryView();
+
+  const handleLogOut = () => {
+    dispatch(logoutUser());
+    toast.success('Successfully logged out');
+  };
 
   return (
     <header className={s.header}>
@@ -26,11 +33,7 @@ const Header = () => {
           {isLoggedIn && (
             <div className={s.userNameLogOutContainer}>
               <h2 className={s.displayName}>Hello, {user?.displayName}!</h2>
-              <Button
-                variant='primary'
-                onClick={() => dispatch(logoutUser())}
-                className={s.logOutButton}
-              >
+              <Button variant='primary' onClick={handleLogOut} className={s.logOutButton}>
                 Log out
               </Button>
             </div>
@@ -41,7 +44,11 @@ const Header = () => {
       )}
 
       {!isDesktop && (
-        <Button variant='secondary' className={s.burgerButton}>
+        <Button
+          onClick={() => dispatch(openModal({ modalType: 'mobileMenu' }))}
+          variant='secondary'
+          className={s.burgerButton}
+        >
           <RxHamburgerMenu className={s.burgerIcon} />
         </Button>
       )}

@@ -63,8 +63,15 @@
   }
 }
 
-@media screen and (max-width:768px) {
+.mobileMenuContent {
+  width: 100%;
+}
+
+@media screen and (max-width:767px) {
   .modalContent {
     padding: 32px;
+    padding-top: 64px;
+    max-width: calc(100% - 40px);
+    margin: 20px;
   }
 }

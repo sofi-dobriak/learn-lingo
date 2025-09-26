@@ -32,3 +32,20 @@
 .active {
   color: var(--hover-color);
 }
+
+@media screen and (max-width:320px) {
+  .navLinksList {
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .navLink {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width:1200px) {
+  .navLink {
+    font-size: 18px;
+  }
+}
