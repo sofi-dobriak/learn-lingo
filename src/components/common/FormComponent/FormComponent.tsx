@@ -3,11 +3,12 @@ import s from './FormComponent.module.css';
 import Button from '../Button/Button';
 import { GoEyeClosed } from 'react-icons/go';
 import { GoEye } from 'react-icons/go';
-import { closeModal, type ModalType } from '../../../redux/modals/modalSlice';
+import { closeModal } from '../../../redux/modals/modalSlice';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch } from '../../../redux/hooks';
 import { loginUser, registerUser } from '../../../redux/auth/authOperations';
 import TextInput from '../TextInput/TextInput';
+import type { ModalType } from '../../../types/modal';
 
 interface FormProps {
   type: ModalType;
