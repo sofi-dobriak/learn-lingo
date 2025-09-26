@@ -6,15 +6,16 @@ interface RadioInputProps {
   value: string;
 }
 
-const RadioInput = ({ id, value }: RadioInputProps) => {
+const RadioInput = ({ id, value, ...rest }: RadioInputProps) => {
   return (
-    <div className={s.radioLabelInputContainer}>
+    <div className={clsx(s.radioLabelInputContainer)}>
       <input
         type='radio'
         id={id}
-        name='radio'
         value={value}
         className={clsx(s.radioInput, 'visually-hidden')}
+        name='reason'
+        {...rest}
       />
       <span className={s.radioSpan}></span>
       <label htmlFor={id} className={s.radioLabel}>

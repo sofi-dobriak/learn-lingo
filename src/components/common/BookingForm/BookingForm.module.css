@@ -3,13 +3,17 @@
   font-size: 24px;
   line-height: 1.33;
   margin-bottom: 20px;
+}
 
+.textErrorContainer,
+.radioErrorContainer {
+  position: relative;
 }
 
 .radioInputsContainer {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 24px;
   margin-bottom: 40px;
 }
 
@@ -18,4 +22,12 @@
   flex-direction: column;
   gap: 26px;
   margin-bottom: 40px;
+}
+
+.errorMessage {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  color: red;
+  font-size: 14px;
 }

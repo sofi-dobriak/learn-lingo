@@ -3,62 +3,119 @@ import TextInput from '../TextInput/TextInput';
 import s from './BookingForm.module.css';
 import Button from '../Button/Button';
 import RadioInput from '../RadioInput/RadioInput';
-// import { useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+import { useAppDispatch } from '../../../redux/hooks';
+import { closeModal } from '../../../redux/modals/modalSlice';
+
+export interface BookingFormInterface {
+  fullname: string;
+  email: string;
+  phoneNumber: string;
+  reason: string;
+}
 
 const BookingForm = () => {
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm();
+  const dispatch = useAppDispatch();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<BookingFormInterface>();
 
   const fullnameID = useId();
   const email = useId();
   const phoneNumber = useId();
 
-  // const onSubmit = data => {
-  //   console.log(data);
-  // };
+  const onSubmit = (data: BookingFormInterface) => {
+    if (!data) return;
+
+    console.log(data);
+    dispatch(closeModal());
+    reset();
+  };
 
   return (
     <>
       <h2 className={s.bookingFormTitle}>What is your main reason for learning English?</h2>
 
-      <form>
-        <div className={s.radioInputsContainer}>
-          <RadioInput id='career-and-business' value='Career and business' />
-          <RadioInput id='lesson-for-kids' value='Lesson for kids' />
-          <RadioInput id='living-abroad' value='Living abroad' />
-          <RadioInput id='exams-and-coursework' value='Exams and coursework' />
-          <RadioInput id='Culture-travel-hobby' value='Culture, travel or hobby' />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className={s.radioErrorContainer}>
+          <div className={s.radioInputsContainer}>
+            <RadioInput
+              id='career-and-business'
+              value='Career and business'
+              {...register('reason', { required: true })}
+            />
+            <RadioInput
+              id='lesson-for-kids'
+              value='Lesson for kids'
+              {...register('reason', { required: true })}
+            />
+            <RadioInput
+              id='living-abroad'
+              value='Living abroad'
+              {...register('reason', { required: true })}
+            />
+            <RadioInput
+              id='exams-and-coursework'
+              value='Exams and coursework'
+              {...register('reason', { required: true })}
+            />
+            <RadioInput
+              id='Culture-travel-hobby'
+              value='Culture, travel or hobby'
+              {...register('reason', { required: true })}
+            />
+          </div>
+          {errors.reason && (
+            <p className={s.errorMessage}>Please select your main reason for learning English</p>
+          )}
         </div>
 
         <div className={s.textInputsContainer}>
-          <TextInput
-            name='fullname'
-            id={fullnameID}
-            placeholder='Full Name'
-            autoComplete='fullname'
-          />
+          <div className={s.textErrorContainer}>
+            <TextInput
+              {...register('fullname', { required: true })}
+              name='fullname'
+              id={fullnameID}
+              placeholder='Full Name'
+              autoComplete='fullname'
+              hasError={!!errors.fullname}
+            />
+            {errors.fullname && <p className={s.errorMessage}>Please enter your full name</p>}
+          </div>
 
-          <TextInput
-            type='email'
-            name='email'
-            id={email}
-            placeholder='Email'
-            autoComplete='email'
-          />
+          <div className={s.textErrorContainer}>
+            <TextInput
+              {...register('email', { required: true })}
+              type='email'
+              name='email'
+              id={email}
+              placeholder='Email'
+              autoComplete='email'
+              hasError={!!errors.email}
+            />
+            {errors.email && <p className={s.errorMessage}>Please enter your email address</p>}
+          </div>
 
-          <TextInput
-            type='tel'
-            name='phoneNumber'
-            id={phoneNumber}
-            placeholder='Phone number'
-            autoComplete='phoneNumber'
-          />
+          <div className={s.textErrorContainer}>
+            <TextInput
+              {...register('phoneNumber', { required: true })}
+              type='tel'
+              name='phoneNumber'
+              id={phoneNumber}
+              placeholder='Phone number'
+              autoComplete='phoneNumber'
+              hasError={!!errors.phoneNumber}
+            />
+            {errors.phoneNumber && <p className={s.errorMessage}>Please enter your phone number</p>}
+          </div>
         </div>
 
-        <Button variant='primary'>Book</Button>
+        <Button variant='primary' type='submit'>
+          Book
+        </Button>
       </form>
     </>
   );

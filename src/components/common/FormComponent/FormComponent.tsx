@@ -73,21 +73,20 @@ const FormComponent = ({ type }: FormProps) => {
             autoComplete='name'
             hasError={!!errors.userName}
           />
-          {errors.userName && <span className={s.error}>Required. Max length 20 chars</span>}
+          {errors.userName && <p className={s.error}>Please enter your full name</p>}
         </div>
       )}
 
       <div className={s.labelInputContainer}>
-        mlFor={userEmailID}
         <TextInput
           {...register('userEmail', { required: true })}
           name='userEmail'
           id={userEmailID}
           placeholder='Email'
           autoComplete='email'
-          hasError={!!errors.userName}
+          hasError={!!errors.userEmail}
         />
-        {errors.userEmail && <span className={s.error}>Required. Invalid email format</span>}
+        {errors.userEmail && <p className={s.error}>Please enter your email address</p>}
       </div>
 
       <div className={s.labelInputContainer}>
@@ -98,7 +97,7 @@ const FormComponent = ({ type }: FormProps) => {
           type={isPassVisible ? 'text' : 'password'}
           placeholder='Password'
           autoComplete='new-password'
-          hasError={!!errors.userName}
+          hasError={!!errors.userPassword}
         />
 
         <button onClick={handleShowPass} type='button' className={s.showHidePassButton}>
@@ -108,7 +107,7 @@ const FormComponent = ({ type }: FormProps) => {
             <GoEyeClosed className={s.showHidePassIcon} />
           )}
         </button>
-        {errors.userPassword && <span className={s.error}>Required. Min length 8 chars</span>}
+        {errors.userPassword && <p className={s.error}>Required. Min length 8 chars</p>}
       </div>
 
       <Button type='submit' variant='primary'>
