@@ -8,6 +8,7 @@
 
 .selectsContainer {
   display: flex;
+  align-items: center;
   gap: 20px;
 }
 
@@ -25,4 +26,16 @@
 .resetButton {
   padding-top: 32px;
   padding-bottom: 12px;
+}
+
+@media screen and (max-width:1280px) {
+  .selectInputsButtonContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .selectsContainer {
+    flex-wrap: wrap;
+  }
+
 }

@@ -17,6 +17,7 @@ import SelectBlock from '../../components/common/SelectBlock/SelectBlock';
 import { selectFilteredTeachers } from '../../redux/filters/filterSelectors';
 import Loader from '../../components/common/Loader/Loader';
 import { useMediaQueryView } from '../../hooks/useMediaQueryView';
+import { openModal } from '../../redux/modals/modalSlice';
 
 const TeachersPage = () => {
   const dispatch = useAppDispatch();
@@ -58,7 +59,11 @@ const TeachersPage = () => {
           <>
             {isDesktop && <SelectBlock />}
             {!isDesktop && (
-              <Button variant='primary' className={s.filtersButton}>
+              <Button
+                onClick={() => dispatch(openModal({ modalType: 'mobileFilters' }))}
+                variant='primary'
+                className={s.filtersButton}
+              >
                 Filters
               </Button>
             )}

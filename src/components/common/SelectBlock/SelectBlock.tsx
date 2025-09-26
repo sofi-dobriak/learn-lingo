@@ -17,18 +17,22 @@ import type { SelectOption } from '../../../redux/teachers/teachersSlice';
 import type { GroupBase, SingleValue } from 'react-select';
 import Button from '../Button/Button';
 import type { StylesConfig } from 'react-select';
+import { useMediaQueryView } from '../../../hooks/useMediaQueryView';
 
-const customStyles: StylesConfig<SelectOption, false, GroupBase<SelectOption>> = {
+const getCustomStyles = (
+  isDesktop: boolean
+): StylesConfig<SelectOption, false, GroupBase<SelectOption>> => ({
   control: provided => ({
     ...provided,
     borderRadius: '14px',
     border: '1px solid transparent',
+    boxShadow: '0 20px 69px 0 rgba(0, 0, 0, 0.07)',
     padding: '14px',
-    minWidth: '220px',
+
+    minWidth: isDesktop ? '220px' : '500px',
     minHeight: '48px',
     backgroundColor: '#fff',
     cursor: 'pointer',
-    boxShadow: 'none',
     '&:hover': {
       borderColor: '#f4c550',
       color: '#121417',
@@ -56,7 +60,6 @@ const customStyles: StylesConfig<SelectOption, false, GroupBase<SelectOption>> =
     overflow: 'hidden',
     boxShadow: '0 20px 69px 0 rgba(0, 0, 0, 0.07)',
     border: 'none',
-    zIndex: 1000,
   }),
 
   menuList: provided => ({
@@ -88,9 +91,11 @@ const customStyles: StylesConfig<SelectOption, false, GroupBase<SelectOption>> =
     color: '#8a8a89',
     margin: '0',
   }),
-};
+});
 
 const SelectBlock = () => {
+  const { isDesktop } = useMediaQueryView();
+
   const languageID = useId();
   const levelID = useId();
   const priceID = useId();
@@ -140,7 +145,7 @@ const SelectBlock = () => {
             id={languageID}
             value={languages.find(opt => opt.value === selectedLanguage) || null}
             onChange={handleLanguageChange}
-            styles={customStyles}
+            styles={getCustomStyles(isDesktop)}
             className={s.selectWrapper}
           />
         </label>
@@ -153,7 +158,7 @@ const SelectBlock = () => {
             id={levelID}
             value={levels.find(opt => opt.value === selectedLevel) || null}
             onChange={handleLevelChange}
-            styles={customStyles}
+            styles={getCustomStyles(isDesktop)}
             className={s.selectWrapper}
           />
         </label>
@@ -164,7 +169,7 @@ const SelectBlock = () => {
             placeholder='30$'
             options={prices}
             id={priceID}
-            styles={customStyles}
+            styles={getCustomStyles(isDesktop)}
             value={prices.find(opt => opt.value === selectedPrice) || null}
             onChange={handlePriceChange}
             className={s.selectWrapper}

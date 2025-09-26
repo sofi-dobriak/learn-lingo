@@ -13,6 +13,7 @@ import { checkAuthState } from './redux/auth/authOperations';
 import InfoMessageLogin from './components/InfoMessageLogin/InfoMessageLogin';
 import InfoSuccessBooking from './components/InfoSuccessBooking/InfoSuccessBooking';
 import MobileMenu from './components/MobileMenu/MobileMenu';
+import FilterMobile from './components/FilterMobile/FilterMobile';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const TeachersPage = lazy(() => import('./pages/TeachersPage/TeachersPage'));
@@ -52,6 +53,7 @@ function App() {
         {modalType === 'infoLogin' && <InfoMessageLogin />}
         {modalType === 'infoSuccess' && <InfoSuccessBooking />}
         {modalType === 'mobileMenu' && <MobileMenu />}
+        {modalType === 'mobileFilters' && <FilterMobile />}
       </Modal>
     </>
   );
