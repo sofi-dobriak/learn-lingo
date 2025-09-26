@@ -64,11 +64,10 @@
 .bookTrialLessonButton {
   margin-top: 0;
   max-width: 232px;
-  opacity: 0;
-  transition: all var(--transition);
+  display: none;
 
   &.visible {
     margin-top: 32px;
-    opacity: 1;
+    display: block;
   }
 }

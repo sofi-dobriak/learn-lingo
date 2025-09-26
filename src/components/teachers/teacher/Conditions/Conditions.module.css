@@ -5,6 +5,7 @@
 .speaksConditionsInfoItem {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 4px;
   font-weight: 500;
   line-height: 1.5;
@@ -32,4 +33,10 @@
   align-items: center;
   gap: 4px;
   flex-wrap: wrap;
+}
+
+@media screen and (max-width:1200px) {
+  .speaksConditionsInfoItem {
+    margin-bottom: 16px;
+  }
 }

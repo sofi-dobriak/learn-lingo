@@ -11,6 +11,7 @@ import TeacherName from '../teacher/TeacherName/TeacherName';
 import s from './TeacherItem.module.css';
 import { useAppDispatch } from '../../../redux/hooks';
 import { openModal } from '../../../redux/modals/modalSlice';
+import { useMediaQueryView } from '../../../hooks/useMediaQueryView';
 
 interface TeacherItemProps {
   teacher: Teacher;
@@ -20,6 +21,8 @@ interface TeacherItemProps {
 
 const TeacherItem = ({ teacher, isExpanded, handleToggleReviews }: TeacherItemProps) => {
   const dispatch = useAppDispatch();
+
+  const { isDesktop } = useMediaQueryView();
 
   const handleOpenBooking = () => {
     dispatch(openModal({ modalType: 'booking', teacherId: teacher.id }));
@@ -41,15 +44,25 @@ const TeacherItem = ({ teacher, isExpanded, handleToggleReviews }: TeacherItemPr
           <TeacherName name={teacher.name} surname={teacher.surname} />
 
           <div className={s.teachersInfoFavContainer}>
-            <InfoList
-              lessons_done={teacher.lessons_done}
-              rating={teacher.rating}
-              price_per_hour={teacher.price_per_hour}
-            />
+            {isDesktop && (
+              <InfoList
+                lessons_done={teacher.lessons_done}
+                rating={teacher.rating}
+                price_per_hour={teacher.price_per_hour}
+              />
+            )}
 
             <FavoriteButton {...teacher} />
           </div>
         </div>
+
+        {!isDesktop && (
+          <InfoList
+            lessons_done={teacher.lessons_done}
+            rating={teacher.rating}
+            price_per_hour={teacher.price_per_hour}
+          />
+        )}
 
         <Conditions
           languages={teacher.languages}

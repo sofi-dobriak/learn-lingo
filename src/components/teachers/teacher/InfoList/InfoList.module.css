@@ -1,6 +1,7 @@
 .teacherInfoList {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 32px;
 }
 
@@ -19,6 +20,11 @@
   }
 }
 
+.lessonIcon,
+.starIcon {
+  display: block;
+}
+
 .lessonIcon {
   fill: none;
   stroke: #121417
@@ -26,4 +32,28 @@
 
 .starIcon {
   fill: #ffc531;
+}
+
+.teacherCard:first-child .teacherInfoList {
+  @media screen and (max-width:1200px) {
+    column-gap: 24px;
+    row-gap: 12px;
+    margin-bottom: 32px;
+  }
+}
+
+@media screen and (max-width:1200px) {
+  .teacherInfoList {
+    column-gap: 24px;
+    row-gap: 12px;
+    margin-bottom: 32px;
+  }
+}
+
+@media screen and (max-width:375px) {
+
+  .lessonIcon,
+  .starIcon {
+    display: none;
+  }
 }

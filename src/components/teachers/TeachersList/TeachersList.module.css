@@ -5,6 +5,7 @@
 .teacherCard {
   display: flex;
   align-items: start;
+
   gap: 48px;
   padding: 24px;
   background-color: #fff;
@@ -13,5 +14,13 @@
 
   &:last-child {
     margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .teacherCard {
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
   }
 }

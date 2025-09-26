@@ -17,7 +17,6 @@ import SelectBlock from '../../components/common/SelectBlock/SelectBlock';
 import { selectFilteredTeachers } from '../../redux/filters/filterSelectors';
 import Loader from '../../components/common/Loader/Loader';
 import { useMediaQueryView } from '../../hooks/useMediaQueryView';
-import { FaFilter } from 'react-icons/fa';
 
 const TeachersPage = () => {
   const dispatch = useAppDispatch();
@@ -58,13 +57,17 @@ const TeachersPage = () => {
         {!isLoading && !error && (
           <>
             {isDesktop && <SelectBlock />}
-            {!isDesktop && <Button variant='primary' className={s.filtersButton}>Filters</Button>}
+            {!isDesktop && (
+              <Button variant='primary' className={s.filtersButton}>
+                Filters
+              </Button>
+            )}
 
             {teachers.length === 0 && <h2 className={s.noCards}>No cards</h2>}
 
-            {/* {teachers.length > 0 && <TeachersList teachers={teachers} />} */}
+            {teachers.length > 0 && <TeachersList teachers={teachers} />}
 
-            {/* {shouldShowLoadMore && (
+            {shouldShowLoadMore && (
               <Button
                 variant='primary'
                 onClick={handleLoadMore}
@@ -73,7 +76,7 @@ const TeachersPage = () => {
               >
                 {isLoadingMore ? 'Loading...' : 'Load More'}
               </Button>
-            )} */}
+            )}
 
             {shouldShowAllLoaded && <h2 className={s.allLoadedInfo}>All teachers loaded</h2>}
           </>

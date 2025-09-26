@@ -28,3 +28,18 @@
 .infoRegisterButton {
   min-width: 200px;
 }
+
+@media screen and (max-width:375px) {
+  .infoButtonsList {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width:768px) {
+
+  .infoLoginButton,
+  .infoRegisterButton {
+    min-width: 130px;
+    padding: 10px;
+  }
+}
