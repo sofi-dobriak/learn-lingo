@@ -11,7 +11,7 @@
   border-radius: 30px;
   width: 100%;
   max-width: 720px;
-  height: 530px;
+  height: auto;
   background-color: var(--secondary-block-bg);
   padding: 98px 64px;
 }
@@ -62,4 +62,20 @@
   width: 100%;
   max-width: 568px;
   height: auto;
+}
+
+@media screen and (max-width:1439px) {
+  .heroMainBlock {
+    justify-content: center;
+  }
+
+  .heroMainBlockText {
+    max-width: 568px;
+  }
+}
+
+@media screen and (max-width:767px) {
+  .heroMainBlockText {
+    padding: 32px 32px;
+  }
 }
