@@ -22,8 +22,14 @@ const slice = createSlice({
       state.isVisible = true;
       state.modalType = action.payload.modalType;
       state.teacherId = action.payload.teacherId;
+      document.body.style.overflow = 'hidden';
     },
-    closeModal: () => initialState,
+    closeModal: state => {
+      state.isVisible = false;
+      state.modalType = null;
+      state.teacherId = null;
+      document.body.style.overflow = '';
+    },
   },
 });
 
