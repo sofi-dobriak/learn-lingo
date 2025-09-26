@@ -12,6 +12,7 @@ import Booking from './components/Booking/Booking';
 import { checkAuthState } from './redux/auth/authOperations';
 import InfoMessageLogin from './components/InfoMessageLogin/InfoMessageLogin';
 import InfoSuccessBooking from './components/InfoSuccessBooking/InfoSuccessBooking';
+
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const TeachersPage = lazy(() => import('./pages/TeachersPage/TeachersPage'));
 const FavoritesPage = lazy(() => import('./pages/FavoritesPage/FavoritesPage'));

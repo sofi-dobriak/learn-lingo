@@ -5,6 +5,17 @@
   padding: 0 128px;
   width: 100%;
   background-color: #fff;
+
+  & .displayName {
+    font-weight: 500;
+    line-height: 1.5;
+    min-width: 120px;
+  }
+
+  & .logOutButton {
+    min-width: 150px;
+    padding: 10px;
+  }
 }
 
 .userNameLogOutContainer {
@@ -13,13 +24,31 @@
   gap: 20px;
 }
 
-.header .displayName {
-  font-weight: 500;
-  line-height: 1.5;
-  min-width: 120px;
+.burgerButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.header .logOutButton {
-  min-width: 150px;
-  padding: 10px;
+.burgerIcon {
+  font-size: 24px;
+  transition: color var(--transition);
+  cursor: pointer;
+
+  .burgerButton:hover &,
+  .burgerButton:focus & {
+    color: var(--hover-color)
+  }
+}
+
+@media screen and (max-width:1200px) {
+  .header {
+    padding: 0 64px;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .header {
+    padding: 0 32px;
+  }
 }

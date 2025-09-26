@@ -19,3 +19,8 @@
 .noCards {
   height: 100vh;
 }
+
+.filtersButton {
+  max-width: 160px;
+  padding: 10px;
+}
