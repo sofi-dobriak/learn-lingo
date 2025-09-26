@@ -1,14 +1,13 @@
 import clsx from 'clsx';
 import s from './Modal.module.css';
 import { createPortal } from 'react-dom';
-import { closeModal, type ModalType } from '../../../redux/modals/modalSlice';
+import { closeModal } from '../../../redux/modals/modalSlice';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import type React from 'react';
 import { useEffect } from 'react';
-import { selectIsVisible } from '../../../redux/modals/modalSelectors';
+import { selectIsVisible, selectModalType } from '../../../redux/modals/modalSelectors';
 
 interface ModalProps {
-  type?: ModalType;
   children: React.ReactNode;
   className?: string;
 }
@@ -16,6 +15,7 @@ interface ModalProps {
 const Modal = ({ children, className = '' }: ModalProps) => {
   const dispatch = useAppDispatch();
   const isVisible = useAppSelector(selectIsVisible);
+  const modalType = useAppSelector(selectModalType);
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
@@ -36,7 +36,13 @@ const Modal = ({ children, className = '' }: ModalProps) => {
 
   return createPortal(
     <div className={clsx(s.modalBackdrop, isVisible && s.visible)} onClick={handleBackdropClick}>
-      <div className={clsx(s.modalContent, className)}>
+      <div
+        className={clsx(
+          s.modalContent,
+          className,
+          modalType === 'booking' && s.bookingModalContent
+        )}
+      >
         <button onClick={() => dispatch(closeModal())} type='button' className={s.buttonClose}>
           <svg width={32} height={32} className={s.iconClose}>
             <use href='/images/icons.svg#icon-close'></use>
