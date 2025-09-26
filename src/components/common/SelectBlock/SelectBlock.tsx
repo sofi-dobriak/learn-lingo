@@ -14,8 +14,81 @@ import {
 } from '../../../redux/teachers/teachersSelectors';
 import { resetFilters, setFilters } from '../../../redux/filters/filterSlice';
 import type { SelectOption } from '../../../redux/teachers/teachersSlice';
-import type { SingleValue } from 'react-select';
+import type { GroupBase, SingleValue } from 'react-select';
 import Button from '../Button/Button';
+import type { StylesConfig } from 'react-select';
+
+const customStyles: StylesConfig<SelectOption, false, GroupBase<SelectOption>> = {
+  control: provided => ({
+    ...provided,
+    borderRadius: '14px',
+    border: '1px solid transparent',
+    padding: '14px',
+    minWidth: '220px',
+    minHeight: '48px',
+    backgroundColor: '#fff',
+    cursor: 'pointer',
+    boxShadow: 'none',
+    '&:hover': {
+      borderColor: '#f4c550',
+      color: '#121417',
+    },
+  }),
+
+  valueContainer: provided => ({
+    ...provided,
+    padding: '0',
+  }),
+
+  indicatorSeparator: () => ({
+    display: 'none',
+  }),
+
+  dropdownIndicator: provided => ({
+    ...provided,
+    color: '#121417',
+    padding: '0',
+  }),
+
+  menu: provided => ({
+    ...provided,
+    borderRadius: '14px',
+    overflow: 'hidden',
+    boxShadow: '0 20px 69px 0 rgba(0, 0, 0, 0.07)',
+    border: 'none',
+    zIndex: 1000,
+  }),
+
+  menuList: provided => ({
+    ...provided,
+    padding: '0',
+  }),
+
+  option: (provided, state) => ({
+    ...provided,
+    color: state.isSelected ? '#121417' : state.isFocused ? '#121417' : '#8a8a89',
+    padding: '10px 12px',
+    backgroundColor: state.isSelected ? '#ddd' : 'transparent',
+    cursor: 'pointer',
+    '&:hover': {
+      backgroundColor: 'transparent',
+      color: '#121417',
+    },
+  }),
+
+  singleValue: provided => ({
+    ...provided,
+    color: '#121417',
+    fontWeight: '500',
+    margin: '0',
+  }),
+
+  placeholder: provided => ({
+    ...provided,
+    color: '#8a8a89',
+    margin: '0',
+  }),
+};
 
 const SelectBlock = () => {
   const languageID = useId();
@@ -67,13 +140,8 @@ const SelectBlock = () => {
             id={languageID}
             value={languages.find(opt => opt.value === selectedLanguage) || null}
             onChange={handleLanguageChange}
-            classNames={{
-              container: () => s.selectWrapper,
-              control: () => s.selectControl,
-              dropdownIndicator: () => s.selectDropdownIndicator,
-              menu: () => s.selectMenu,
-              option: () => s.selectOption,
-            }}
+            styles={customStyles}
+            className={s.selectWrapper}
           />
         </label>
 
@@ -85,13 +153,8 @@ const SelectBlock = () => {
             id={levelID}
             value={levels.find(opt => opt.value === selectedLevel) || null}
             onChange={handleLevelChange}
-            classNames={{
-              container: () => s.selectWrapper,
-              control: () => s.selectControl,
-              dropdownIndicator: () => s.selectDropdownIndicator,
-              menu: () => s.selectMenu,
-              option: () => s.selectOption,
-            }}
+            styles={customStyles}
+            className={s.selectWrapper}
           />
         </label>
 
@@ -101,15 +164,10 @@ const SelectBlock = () => {
             placeholder='30$'
             options={prices}
             id={priceID}
+            styles={customStyles}
             value={prices.find(opt => opt.value === selectedPrice) || null}
             onChange={handlePriceChange}
-            classNames={{
-              container: () => s.selectWrapper,
-              control: () => s.selectControl,
-              dropdownIndicator: () => s.selectDropdownIndicator,
-              menu: () => s.selectMenu,
-              option: () => s.selectOption,
-            }}
+            className={s.selectWrapper}
           />
         </label>
       </div>
