@@ -49,6 +49,7 @@ export const loginUser = createAsyncThunk(
   async ({ email, password }: LoginData, ThunkAPI) => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
+
       toast.success('Successfully logged in');
       return transformUser(userCredential.user);
     } catch (error: unknown) {

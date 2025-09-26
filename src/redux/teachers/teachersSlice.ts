@@ -52,7 +52,6 @@ const slice = createSlice({
   extraReducers: builder => {
     builder
 
-      // teachers
       .addCase(fetchTeachers.pending, (state, action) => {
         const { reset } = action.meta.arg;
 
@@ -86,7 +85,6 @@ const slice = createSlice({
         state.error = action.payload as string;
       })
 
-      // languages
       .addCase(fetchAllLanguages.pending, () => {})
       .addCase(fetchAllLanguages.fulfilled, (state, action: PayloadAction<SelectOption[]>) => {
         state.languages = action.payload;
@@ -95,7 +93,6 @@ const slice = createSlice({
         state.error = action.payload as string;
       })
 
-      //levels
       .addCase(fetchAllLevels.pending, () => {})
       .addCase(fetchAllLevels.fulfilled, (state, action: PayloadAction<SelectOption[]>) => {
         state.levels = action.payload;
@@ -104,7 +101,6 @@ const slice = createSlice({
         state.error = action.payload as string;
       })
 
-      //prices
       .addCase(fetchAllPrices.pending, () => {})
       .addCase(fetchAllPrices.fulfilled, (state, action: PayloadAction<PriceOption[]>) => {
         state.prices = action.payload;

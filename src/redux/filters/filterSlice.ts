@@ -1,5 +1,12 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
+type FilterType = 'language' | 'level' | 'price';
+
+interface FilterInterface {
+  filterType: FilterType;
+  value: string | number | null;
+}
+
 interface InitialState {
   selectedLanguage: number | string | null;
   selectedLevel: string | number | null;
@@ -10,13 +17,6 @@ const initialState: InitialState = {
   selectedLevel: null,
   selectedPrice: null,
 };
-
-type FilterType = 'language' | 'level' | 'price';
-
-interface FilterInterface {
-  filterType: FilterType;
-  value: string | number | null;
-}
 
 export const slice = createSlice({
   name: 'filters',

@@ -19,6 +19,7 @@ import Loader from '../../components/common/Loader/Loader';
 
 const TeachersPage = () => {
   const dispatch = useAppDispatch();
+
   const allTeachers = useAppSelector(selectTeachers);
   const teachers = useAppSelector(selectFilteredTeachers);
   const isLoading = useAppSelector(selectIsLoading);
@@ -49,6 +50,7 @@ const TeachersPage = () => {
     <section className={s.teachersPage}>
       <Container>
         {isLoading && <Loader />}
+
         {!isLoading && !error && (
           <>
             <SelectBlock />

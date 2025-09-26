@@ -18,16 +18,16 @@ const Header = () => {
       <Navigation />
 
       {isLoggedIn ? (
-        <>
-          <h2>Hello, {user?.displayName}!</h2>
+        <div className={s.userNameLogOutContainer}>
+          <h2 className={s.displayName}>Hello, {user?.displayName}!</h2>
           <Button
-            variant='secondary'
+            variant='primary'
             onClick={() => dispatch(logoutUser())}
             className={s.logOutButton}
           >
             Log out
           </Button>
-        </>
+        </div>
       ) : (
         <AuthNav />
       )}

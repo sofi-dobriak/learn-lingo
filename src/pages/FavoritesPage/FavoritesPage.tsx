@@ -14,6 +14,7 @@ import { selectUser } from '../../redux/auth/authSelectors';
 
 const FavoritesPage = () => {
   const dispatch = useAppDispatch();
+
   const user = useAppSelector(selectUser);
   const favTeachers = useAppSelector(selectFavTeachers);
   const isLoading = useAppSelector(selectIsLoading);

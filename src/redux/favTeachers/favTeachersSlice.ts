@@ -24,12 +24,30 @@ const favoritesSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
+      .addCase(addFavoriteTeacher.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
       .addCase(addFavoriteTeacher.fulfilled, (state, action) => {
         state.favorites.push(action.payload);
+      })
+      .addCase(addFavoriteTeacher.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
+      })
+
+      .addCase(removeFavoriteTeacher.pending, state => {
+        state.isLoading = true;
+        state.error = null;
       })
       .addCase(removeFavoriteTeacher.fulfilled, (state, action) => {
         state.favorites = state.favorites.filter(teacher => teacher.id !== action.payload);
       })
+      .addCase(removeFavoriteTeacher.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
+      })
+
       .addCase(fetchFavoriteTeachers.pending, state => {
         state.isLoading = true;
         state.error = null;

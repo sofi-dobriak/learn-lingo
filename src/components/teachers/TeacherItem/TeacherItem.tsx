@@ -28,7 +28,12 @@ const TeacherItem = ({ teacher, isExpanded, handleToggleReviews }: TeacherItemPr
   return (
     <>
       <div className={s.teacherAvatarContainer}>
-        <img src={teacher.avatar_url} alt="A teacher's avatar" width={120} height={120} />
+        <img
+          src={teacher.avatar_url}
+          alt={`A ${teacher.name} ${teacher.surname}'s avatar`}
+          width={120}
+          height={120}
+        />
       </div>
 
       <div className={s.teacherCardTextContainer}>

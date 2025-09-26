@@ -16,17 +16,17 @@ const InfoList = ({ lessons_done, rating, price_per_hour }: InfoListProps) => {
         <p>Lessons online</p>
       </li>
       <li className={s.infoItem}>
-        <p>Lessons done: {lessons_done}</p>
+        <p>Lessons done: {lessons_done ? lessons_done : '—'}</p>
       </li>
       <li className={s.infoItem}>
         <svg width={18} height={18} className={s.starIcon}>
           <use href='/images/icons.svg#icon-star'></use>
         </svg>
-        <p>Rating: {rating}</p>
+        <p>Rating: {rating ? rating : '—'}</p>
       </li>
       <li className={s.infoItem}>
         <p>
-          Price / 1 hour: <span>{price_per_hour}$</span>
+          Price / 1 hour: <span>{price_per_hour ? `${price_per_hour}$` : '—'}</span>
         </p>
       </li>
     </ul>
