@@ -5,7 +5,7 @@ import Button from '../Button/Button';
 import RadioInput from '../RadioInput/RadioInput';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch } from '../../../redux/hooks';
-import { closeModal } from '../../../redux/modals/modalSlice';
+import { closeModal, openModal } from '../../../redux/modals/modalSlice';
 
 export interface BookingFormInterface {
   fullname: string;
@@ -32,6 +32,7 @@ const BookingForm = () => {
 
     console.log(data);
     dispatch(closeModal());
+    dispatch(openModal({ modalType: 'infoSuccess' }));
     reset();
   };
 

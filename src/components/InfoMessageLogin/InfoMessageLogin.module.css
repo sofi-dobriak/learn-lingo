@@ -1,0 +1,30 @@
+.infoLoginTitle {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.infoButtonsList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.infoLoginButton {
+  min-width: 200px;
+  background-color: #121417;
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    color: #121417;
+  }
+}
+
+.infoRegisterButton {
+  min-width: 200px;
+}

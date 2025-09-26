@@ -10,7 +10,8 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Booking from './components/Booking/Booking';
 import { checkAuthState } from './redux/auth/authOperations';
-
+import InfoMessageLogin from './components/InfoMessageLogin/InfoMessageLogin';
+import InfoSuccessBooking from './components/InfoSuccessBooking/InfoSuccessBooking';
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const TeachersPage = lazy(() => import('./pages/TeachersPage/TeachersPage'));
 const FavoritesPage = lazy(() => import('./pages/FavoritesPage/FavoritesPage'));
@@ -46,6 +47,8 @@ function App() {
         {modalType === 'login' && <Login />}
         {modalType === 'register' && <Register />}
         {modalType === 'booking' && <Booking />}
+        {modalType === 'infoLogin' && <InfoMessageLogin />}
+        {modalType === 'infoSuccess' && <InfoSuccessBooking />}
       </Modal>
     </>
   );

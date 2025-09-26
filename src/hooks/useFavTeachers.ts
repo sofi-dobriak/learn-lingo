@@ -7,7 +7,7 @@ import {
   removeFavoriteTeacher,
 } from '../redux/favTeachers/favTeachersOperations';
 import { selectUser } from '../redux/auth/authSelectors';
-import toast from 'react-hot-toast';
+import { openModal } from '../redux/modals/modalSlice';
 
 export const useFavTeachers = (teacherId: string, teacher: Teacher) => {
   const dispatch = useAppDispatch();
@@ -18,7 +18,7 @@ export const useFavTeachers = (teacherId: string, teacher: Teacher) => {
 
   const handleToggleFav = useCallback(() => {
     if (!user) {
-      toast.error('Please login');
+      dispatch(openModal({ modalType: 'infoLogin' }));
       return;
     }
 

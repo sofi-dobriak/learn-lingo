@@ -20,7 +20,7 @@
 .navLink {
   line-height: 1.25;
   color: var(--main-text-color);
-  padding: 30px 0;
+  padding: 26px 0;
   transition: color var(--transition);
 
   &:hover,

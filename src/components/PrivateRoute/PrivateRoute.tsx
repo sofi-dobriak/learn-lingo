@@ -1,8 +1,8 @@
 import { Navigate } from 'react-router-dom';
-import { useAppSelector } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { selectIsAuthenticated } from '../../redux/auth/authSelectors';
-import toast from 'react-hot-toast';
 import { useEffect } from 'react';
+import { openModal } from '../../redux/modals/modalSlice';
 
 interface PrivateRouteProps {
   component: React.ReactNode;
@@ -11,12 +11,13 @@ interface PrivateRouteProps {
 
 const PrivateRoute = ({ component, redirectTo = '/' }: PrivateRouteProps) => {
   const isLoggedIn = useAppSelector(selectIsAuthenticated);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (!isLoggedIn) {
-      toast.error('Please log in');
+      dispatch(openModal({ modalType: 'infoLogin' }));
     }
-  }, [isLoggedIn]);
+  }, [dispatch, isLoggedIn]);
 
   if (!isLoggedIn) {
     return <Navigate to={redirectTo} />;

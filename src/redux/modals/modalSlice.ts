@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export type ModalType = 'login' | 'register' | 'booking' | 'info';
+export type ModalType = 'login' | 'register' | 'booking' | 'infoLogin' | 'infoSuccess';
 
 interface initialState {
   isVisible: boolean;
