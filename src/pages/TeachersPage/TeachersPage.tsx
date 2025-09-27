@@ -18,6 +18,7 @@ import { selectFilteredTeachers } from '../../redux/filters/filterSelectors';
 import Loader from '../../components/common/Loader/Loader';
 import { useMediaQueryView } from '../../hooks/useMediaQueryView';
 import { openModal } from '../../redux/modals/modalSlice';
+import NoCards from '../../components/NoCards/NoCards';
 
 const TeachersPage = () => {
   const dispatch = useAppDispatch();
@@ -68,7 +69,7 @@ const TeachersPage = () => {
               </Button>
             )}
 
-            {teachers.length === 0 && <h2 className={s.noCards}>No cards</h2>}
+            {teachers.length === 0 && <NoCards/>}
 
             {teachers.length > 0 && <TeachersList teachers={teachers} />}
 
