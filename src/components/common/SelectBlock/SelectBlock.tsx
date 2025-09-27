@@ -17,19 +17,17 @@ import type { SelectOption } from '../../../redux/teachers/teachersSlice';
 import type { GroupBase, SingleValue } from 'react-select';
 import Button from '../Button/Button';
 import type { StylesConfig } from 'react-select';
-import { useMediaQueryView } from '../../../hooks/useMediaQueryView';
+import { closeModal } from '../../../redux/modals/modalSlice';
 
-const getCustomStyles = (
-  isDesktop: boolean
-): StylesConfig<SelectOption, false, GroupBase<SelectOption>> => ({
+const getCustomStyles = (): StylesConfig<SelectOption, false, GroupBase<SelectOption>> => ({
   control: provided => ({
     ...provided,
     borderRadius: '14px',
     border: '1px solid transparent',
     boxShadow: '0 20px 69px 0 rgba(0, 0, 0, 0.07)',
     padding: '14px',
-
-    minWidth: isDesktop ? '220px' : '500px',
+    width: '100%',
+    minWidth: '220px',
     minHeight: '48px',
     backgroundColor: '#fff',
     cursor: 'pointer',
@@ -60,6 +58,7 @@ const getCustomStyles = (
     overflow: 'hidden',
     boxShadow: '0 20px 69px 0 rgba(0, 0, 0, 0.07)',
     border: 'none',
+    zIndex: 2000,
   }),
 
   menuList: provided => ({
@@ -94,8 +93,6 @@ const getCustomStyles = (
 });
 
 const SelectBlock = () => {
-  const { isDesktop } = useMediaQueryView();
-
   const languageID = useId();
   const levelID = useId();
   const priceID = useId();
@@ -134,6 +131,11 @@ const SelectBlock = () => {
     );
   };
 
+  const handleResetFilters = () => {
+    dispatch(resetFilters());
+    dispatch(closeModal());
+  };
+
   return (
     <div className={s.selectInputsButtonContainer}>
       <div className={s.selectsContainer}>
@@ -145,7 +147,7 @@ const SelectBlock = () => {
             id={languageID}
             value={languages.find(opt => opt.value === selectedLanguage) || null}
             onChange={handleLanguageChange}
-            styles={getCustomStyles(isDesktop)}
+            styles={getCustomStyles()}
             className={s.selectWrapper}
           />
         </label>
@@ -158,7 +160,7 @@ const SelectBlock = () => {
             id={levelID}
             value={levels.find(opt => opt.value === selectedLevel) || null}
             onChange={handleLevelChange}
-            styles={getCustomStyles(isDesktop)}
+            styles={getCustomStyles()}
             className={s.selectWrapper}
           />
         </label>
@@ -169,7 +171,7 @@ const SelectBlock = () => {
             placeholder='30$'
             options={prices}
             id={priceID}
-            styles={getCustomStyles(isDesktop)}
+            styles={getCustomStyles()}
             value={prices.find(opt => opt.value === selectedPrice) || null}
             onChange={handlePriceChange}
             className={s.selectWrapper}
@@ -177,11 +179,7 @@ const SelectBlock = () => {
         </label>
       </div>
 
-      <Button
-        onClick={() => dispatch(resetFilters())}
-        variant='secondary'
-        className={s.resetButton}
-      >
+      <Button onClick={handleResetFilters} variant='secondary' className={s.resetButton}>
         Reset
       </Button>
     </div>

@@ -1,14 +1,15 @@
 .selectInputsButtonContainer {
   display: flex;
   align-items: center;
+  flex-direction: row;
   gap: 12px;
   margin-bottom: 32px;
-  max-width: 600px;
 }
 
 .selectsContainer {
   display: flex;
   align-items: center;
+  flex-direction: row;
   gap: 20px;
 }
 
@@ -28,14 +29,15 @@
   padding-bottom: 12px;
 }
 
-@media screen and (max-width:1280px) {
+@media screen and (max-width:1200px) {
   .selectInputsButtonContainer {
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
+    margin-bottom: 0;
   }
 
   .selectsContainer {
-    flex-wrap: wrap;
+    flex-direction: column;
   }
 
 }

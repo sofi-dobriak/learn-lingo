@@ -10,8 +10,8 @@ interface PrivateRouteProps {
 }
 
 const PrivateRoute = ({ component, redirectTo = '/' }: PrivateRouteProps) => {
-  const isLoggedIn = useAppSelector(selectIsAuthenticated);
   const dispatch = useAppDispatch();
+  const isLoggedIn = useAppSelector(selectIsAuthenticated);
 
   useEffect(() => {
     if (!isLoggedIn) {
