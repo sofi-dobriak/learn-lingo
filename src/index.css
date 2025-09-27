@@ -48,6 +48,9 @@
   --accent-text-color: #38cd3e;
   --secondary-accent-text-color: #fbe9ba;
 
+  /* booking  */
+  --modal-desc-text-color: rgba(18, 20, 23, 0.8);
+
   /* bg colors */
   --main-block-bg: #fff;
   --secondary-block-bg: #f8f8f8;
@@ -58,6 +61,7 @@
   /* border colors */
   --main-border-color: rgba(18, 20, 23, 0.2);
   --secondary-border-color: #f4c550;
+  --tertiary-border-color: #fbe9ba;
 
   /* hover colors*/
   --hover-color: #f4c550;
@@ -65,6 +69,18 @@
 
   /* transition */
   --transition: 0.10s ease-in-out;
+
+  /* error */
+  --error-color: red;
+
+  /* modal */
+  --modal-backdrop-color: rgba(11, 11, 11, 0.6);
+
+  /* star */
+  --star-color: #ffc531;
+
+  /* feedback */
+  --feedback-bg: #f9f9f9;
 }
 
 * {

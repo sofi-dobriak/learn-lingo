@@ -17,15 +17,15 @@
 }
 
 .loginRegisterLinksList .registerButton {
-  color: #fff;
-  background: #121417;
+  color: var(--additional-text-color);
+  background-color: var(--secondary-button-bg-color);
   min-width: 166px;
   transition: color var(--transition);
   padding: 10px;
 
   &:hover,
   &:focus {
-    color: #121417;
+    color: var(--main-text-color);
   }
 }
 

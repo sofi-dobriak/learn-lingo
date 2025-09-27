@@ -28,6 +28,6 @@
   position: absolute;
   bottom: -20px;
   left: 0;
-  color: red;
+  color: var(--error-color);
   font-size: 14px;
 }

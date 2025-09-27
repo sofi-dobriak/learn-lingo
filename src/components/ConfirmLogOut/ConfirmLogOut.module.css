@@ -16,12 +16,12 @@
 
 .confirmLogOutCancelButton {
   min-width: 200px;
-  background-color: #121417;
-  color: #fff;
+  background-color: var(--secondary-button-bg-color);
+  color: var(--additional-text-color);
 
   &:hover,
   &:focus {
-    color: #121417;
+    color: var(--main-text-color);
   }
 }
 

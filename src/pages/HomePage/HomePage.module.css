@@ -1,4 +1,4 @@
 .homePage {
   padding: 20px 0 32px;
-  background-color: #fff;
+  background-color: var(--main-block-bg);
 }

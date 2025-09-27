@@ -12,11 +12,11 @@
 
   p {
     font-weight: 500;
-    color: #121417;
+    color: var(--main-text-color);
   }
 
   span {
-    color: #38cd3e;
+    color: var(--accent-text-color);
   }
 }
 
@@ -27,11 +27,11 @@
 
 .lessonIcon {
   fill: none;
-  stroke: #121417
+  stroke: var(--main-text-color)
 }
 
 .starIcon {
-  fill: #ffc531;
+  fill: var(--star-color);
 }
 
 .teacherCard:first-child .teacherInfoList {

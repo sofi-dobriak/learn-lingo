@@ -1,7 +1,7 @@
 .languages {
   font-weight: 500;
   line-height: 1.5;
-  color: #8a8a89;
+  color: var(--secondary-text-color);
   margin-bottom: 8px;
 }
 
@@ -9,5 +9,4 @@
   font-weight: 500;
   font-size: 24px;
   line-height: 1;
-  color: #121417;
 }

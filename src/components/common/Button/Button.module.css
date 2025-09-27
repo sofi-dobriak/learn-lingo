@@ -6,14 +6,14 @@
   padding: 16px;
   width: 100%;
   border-radius: 12px;
-  background-color: #ffc531;
+  background-color: var(--main-button-bg-color);
   border: none;
   transition: background-color var(--transition);
   cursor: pointer;
 
   &:hover,
   &:focus {
-    background-color: #ffdc86;
+    background-color: var(--secondary-hover-color);
   }
 }
 
@@ -31,6 +31,6 @@
 
   &:hover,
   &:focus {
-    color: #ffc531;
+    color: var(--secondary-hover-color);
   }
 }

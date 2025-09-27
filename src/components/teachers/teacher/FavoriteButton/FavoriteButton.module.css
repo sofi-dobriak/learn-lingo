@@ -11,14 +11,14 @@
 
 .favIcon {
   fill: none;
-  stroke: #121417;
+  stroke: var(--main-text-color);
   transition: stroke var(--transition);
 
   .favButton:hover & {
-    stroke: #ffc531
+    stroke: var(--hover-color)
   }
 }
 
 .active {
-  stroke: #ffc531;
+  stroke: var(--hover-color);
 }

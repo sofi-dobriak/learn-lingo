@@ -7,20 +7,20 @@
 
 .levelsItem {
   padding: 8px 12px;
-  border: 1px solid rgba(18, 20, 23, 0.2);
+  border: 1px solid var(--main-border-color);
   border-radius: 35px;
   cursor: text;
   transition: all var(--transition);
 
   &:first-child {
-    border-color: #ffc531;
-    background-color: #ffc531;
+    border-color: var(--star-color);
+    background-color: var(--star-color);
   }
 
   &:hover,
   &:focus {
-    border-color: #ffdc86;
-    background-color: #ffdc86;
+    border-color: var(--secondary-hover-color);
+    background-color: var(--secondary-hover-color);
   }
 }
 
@@ -28,5 +28,4 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
-  color: #121417;
 }

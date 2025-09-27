@@ -16,7 +16,7 @@
   }
 
   span {
-    color: #8a8a89;
+    color: var(--secondary-text-color);
   }
 
 }
