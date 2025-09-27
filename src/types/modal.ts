@@ -5,4 +5,5 @@ export type ModalType =
   | 'infoLogin'
   | 'infoSuccess'
   | 'mobileMenu'
-  | 'mobileFilters';
+  | 'mobileFilters'
+  | 'confirmLogOut';

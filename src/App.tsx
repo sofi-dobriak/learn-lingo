@@ -14,6 +14,7 @@ import InfoMessageLogin from './components/InfoMessageLogin/InfoMessageLogin';
 import InfoSuccessBooking from './components/InfoSuccessBooking/InfoSuccessBooking';
 import MobileMenu from './components/MobileMenu/MobileMenu';
 import FilterMobile from './components/FilterMobile/FilterMobile';
+import ConfirmLogOut from './components/ConfirmLogOut/ConfirmLogOut';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const TeachersPage = lazy(() => import('./pages/TeachersPage/TeachersPage'));
@@ -54,6 +55,7 @@ function App() {
         {modalType === 'infoSuccess' && <InfoSuccessBooking />}
         {modalType === 'mobileMenu' && <MobileMenu />}
         {modalType === 'mobileFilters' && <FilterMobile />}
+        {modalType === 'confirmLogOut' && <ConfirmLogOut />}
       </Modal>
     </>
   );

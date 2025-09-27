@@ -1,0 +1,45 @@
+.confirmLogOuTitle {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.confirmLogOutList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.confirmLogOutCancelButton {
+  min-width: 200px;
+  background-color: #121417;
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    color: #121417;
+  }
+}
+
+.confirmLogOutButton {
+  min-width: 200px;
+}
+
+@media screen and (max-width:767px) {
+  .confirmLogOutList {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width:375px) {
+
+  .confirmLogOutCancelButton,
+  .confirmLogOutButton {
+    min-width: 130px;
+    padding: 10px;
+  }
+}
