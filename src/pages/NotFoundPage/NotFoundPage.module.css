@@ -1,0 +1,34 @@
+.notFoundPageSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0;
+}
+
+.notFoundPageTitle {
+  font-weight: 500;
+  font-size: 40px;
+  margin-bottom: 32px;
+}
+
+.notFoundPageLink {
+  display: block;
+  text-align: center;
+
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #121417;
+  padding: 16px;
+  width: 100%;
+  border-radius: 12px;
+  background-color: var(--main-button-bg-color);
+  border: none;
+  transition: background-color var(--transition);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: var(--secondary-hover-color);
+  }
+}
