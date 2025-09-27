@@ -29,6 +29,7 @@ const favoritesSlice = createSlice({
         state.error = null;
       })
       .addCase(addFavoriteTeacher.fulfilled, (state, action) => {
+        state.isLoading = false;
         state.favorites.push(action.payload);
       })
       .addCase(addFavoriteTeacher.rejected, (state, action) => {
@@ -41,6 +42,7 @@ const favoritesSlice = createSlice({
         state.error = null;
       })
       .addCase(removeFavoriteTeacher.fulfilled, (state, action) => {
+        state.isLoading = false;
         state.favorites = state.favorites.filter(teacher => teacher.id !== action.payload);
       })
       .addCase(removeFavoriteTeacher.rejected, (state, action) => {

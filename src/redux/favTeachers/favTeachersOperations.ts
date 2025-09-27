@@ -24,7 +24,7 @@ export const removeFavoriteTeacher = createAsyncThunk(
       await remove(ref(database, `users/${userId}/favorites/${teacherId}`));
       return teacherId;
     } catch (error) {
-      toast.error('Failed to add teacher to favorites.');
+      toast.error('Failed to remove teacher to favorites.');
       return rejectWithValue(error);
     }
   }
