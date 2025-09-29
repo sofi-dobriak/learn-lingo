@@ -18,6 +18,7 @@ import type { GroupBase, SingleValue } from 'react-select';
 import Button from '../Button/Button';
 import type { StylesConfig } from 'react-select';
 import { closeModal } from '../../../redux/modals/modalSlice';
+import { useMediaQueryView } from '../../../hooks/useMediaQueryView';
 
 const getCustomStyles = (): StylesConfig<SelectOption, false, GroupBase<SelectOption>> => ({
   control: provided => ({
@@ -93,6 +94,8 @@ const getCustomStyles = (): StylesConfig<SelectOption, false, GroupBase<SelectOp
 });
 
 const SelectBlock = () => {
+  const { isDesktop } = useMediaQueryView();
+
   const languageID = useId();
   const levelID = useId();
   const priceID = useId();
@@ -133,6 +136,10 @@ const SelectBlock = () => {
 
   const handleResetFilters = () => {
     dispatch(resetFilters());
+    dispatch(closeModal());
+  };
+
+  const handleCloseModal = () => {
     dispatch(closeModal());
   };
 
@@ -179,8 +186,12 @@ const SelectBlock = () => {
         </label>
       </div>
 
-      <Button onClick={handleResetFilters} variant='secondary' className={s.resetButton}>
-        Reset
+      <Button
+        onClick={isDesktop ? handleResetFilters : handleCloseModal}
+        variant='secondary'
+        className={s.resetButton}
+      >
+        {isDesktop ? 'Reset' : 'Apply'}
       </Button>
     </div>
   );

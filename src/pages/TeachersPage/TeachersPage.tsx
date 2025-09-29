@@ -19,6 +19,7 @@ import Loader from '../../components/common/Loader/Loader';
 import { useMediaQueryView } from '../../hooks/useMediaQueryView';
 import { openModal } from '../../redux/modals/modalSlice';
 import NoCards from '../../components/NoCards/NoCards';
+import { resetFilters } from '../../redux/filters/filterSlice';
 
 const TeachersPage = () => {
   const dispatch = useAppDispatch();
@@ -48,6 +49,10 @@ const TeachersPage = () => {
     }
   };
 
+  const handleResetFilters = () => {
+    dispatch(resetFilters());
+  };
+
   const shouldShowLoadMore = hasMore && teachers.length > 0;
   const shouldShowAllLoaded = !hasMore && teachers.length > 0 && allTeachers.length > 0;
 
@@ -59,17 +64,24 @@ const TeachersPage = () => {
         {!isLoading && !error && (
           <>
             {isDesktop && <SelectBlock />}
+
             {!isDesktop && (
-              <Button
-                onClick={() => dispatch(openModal({ modalType: 'mobileFilters' }))}
-                variant='primary'
-                className={s.filtersButton}
-              >
-                Filters
-              </Button>
+              <div className={s.mobFilterButtons}>
+                <Button
+                  onClick={() => dispatch(openModal({ modalType: 'mobileFilters' }))}
+                  variant='primary'
+                  className={s.filtersButton}
+                >
+                  Filters
+                </Button>
+
+                <Button onClick={handleResetFilters} variant='secondary' className={s.resetButton}>
+                  Reset
+                </Button>
+              </div>
             )}
 
-            {teachers.length === 0 && <NoCards/>}
+            {teachers.length === 0 && <NoCards />}
 
             {teachers.length > 0 && <TeachersList teachers={teachers} />}
 
