@@ -20,7 +20,7 @@ interface FetchTeachersParams {
 export const fetchTeachers = createAsyncThunk(
   'teachers/fetchTeachers',
   async (
-    { limit = 4, startAfter: startAfterKey, reset = false }: FetchTeachersParams = {},
+    { limit = 40, startAfter: startAfterKey, reset = false }: FetchTeachersParams = {},
     ThunkAPI
   ) => {
     try {
